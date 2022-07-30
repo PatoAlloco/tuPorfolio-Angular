@@ -1,1 +1,167 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+body{
+    background: rgb(249, 249, 249);
+    font-family: 'Be Vietnam Pro', sans-serif;
+    padding: 0.3vw ;
+}
+i{
+    font-size: x-large;
+    color: #676781;
+    margin: 0.5vw;
+}
+li{
+    background-color: rgb(200, 230, 241);
+    border-radius: 10px;
+}
+main{
+    padding: 0vw 7vw;
+}
+/*=======Header=========*/
+
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw;
+    height: 5vw;
+    background-color: rgb(194, 208, 214);
+    margin-bottom: 1vw;    
+}
+header img{
+    height: 3.5vw;
+}
+header i{
+    font-size: x-large;
+    color: #676781;
+    margin: 0.5vw;
+}
+header button{
+    margin-bottom: 0.5vw;
+}
+
+/*=======Body======*/
+/*=====Perfil======*/
+section div.portada{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: flex-start;
+    padding-left: 5vw;
+    padding-right: 5vw;
+    background-color: rgb(223, 236, 241);
+    background-color: red;
+    background-image: url(/src/assets/images/portada.jfif);
+    height: 15vw;   
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px; 
+}
+.portada {
+    background-image: url(/src/assets/images/fondoLogin.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+section.perfil img{
+    width: 10vw;
+    border-radius: 50%;
+}
+
+section div.info-perfil-box{    
+    padding-left: 5vw;
+    padding-right: 5vw;
+    background-color: rgb(223, 236, 241);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.info-perfil{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.foto-perfil{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/*========Acerca de mi==========*/
+section.sobre-mi{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    margin-top: 1vw;
+    border-radius: 10px;
+    background-color: rgb(223, 236, 241);
+    padding: 1vw;
+}
+
+/*==========experiencia laboral======*/
+section.experiencia-laboral{
+    margin-top: 1vw;
+    border-radius: 10px;
+    background-color: rgb(223, 236, 241);
+    padding: 1vw;
+}
+section.experiencia-laboral div.experiencia-titulo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+section li.trabajo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1vw;
+    padding: 1vw;
+}
+section.experiencia-laboral ul li div i{
+    margin-right: 2vw;
+}
+
+/*========SoftSkills==========*/
+.softskills-editar{
+    display: flex;
+}
+.progress{
+    margin-top: 1vw;
+}
+
+/*=========Footer======*/
+footer img{
+    width: 10vw;
+}
+footer{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    color: aliceblue;
+    padding: 1vw;
+
+
+    margin-top: 1vw;
+    background: #1E1E26;
+    height: 5vw;
+}
+footer p{
+    display: flex;
+    font-size: small;
+    flex-direction: column;
+    justify-content: flex-end;
+    
+
+}
+footer a{
+    margin: 0.5vw;
+    color: aliceblue;
+}

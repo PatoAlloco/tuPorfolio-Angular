@@ -1,0 +1,25 @@
+<main>
+    <section class="experiencia-laboral">
+        <div class="experiencia-titulo">
+            <h5>Proyectos</h5>
+            <i class="fa-solid fa-circle-plus"></i>
+        </div>
+        <ul>
+            <li *ngFor="let proyecto of proyectos" class="trabajo">
+                <div class="experiencia-titulo">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <div>
+                        <span><strong>{{proyecto.titulo}}</strong></span>
+                        <p>{{proyecto.descripcion}}</p>
+                        <a [href]="proyecto.linkRepositorio"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </div>
+            </li>
+            <hr>
+        </ul>
+    </section>    
+</main>

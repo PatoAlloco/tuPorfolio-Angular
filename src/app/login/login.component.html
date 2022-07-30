@@ -1,0 +1,41 @@
+<body>
+
+    <header class="container">
+        <nav>
+            <h1>tuPorfolio</h1>
+            <img src="../../assets/images/arg-programa.png" alt="logo Argentina Programa">
+        </nav>
+    </header>
+
+    <div class="container">
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+            <div class="form-header">
+                <h2>tuPorfolio</h2>
+                <p class="rounded">Login</p>
+            </div>
+
+            <label>Email</label>
+            <input id="inputEmail" type="email" formControlName="mail"
+            [ngClass]="{'is-invalid' : Email?.errors && Email?.touched, 'is-valid' : !Email?.errors && Email?.touched}" class="form-control">
+            <div *ngIf="Email?.errors && Email?.touched">
+                <p *ngIf="Email?.hasError('required')" class="text-danger"> El mail es Requerido</p>
+                <p *ngIf="Email?.hasError('email')" class="text-danger"> Formato invalido</p>
+            </div>
+            <label>Contraseña</label>
+            <input id="inputPassword" type="password" formControlName="password"
+            [ngClass]="{'is-invalid' : Password?.errors && Password?.touched, 'is-valid' : !Password?.errors && Password?.touched}" class="form-control">
+            
+            <div *ngIf="Password?.errors && Password?.touched">
+                <p *ngIf="Password?.hasError('required')" class="text-danger"> La contraseña es Requerida</p>
+                <p *ngIf="Password?.hasError('minlength')" class="text-danger"> La contraseña debe tener minimo 6 caracteres</p>
+            </div>
+            <button type="submit">Ingresar</button>
+
+        </form>
+
+        <div class="ingresarA">
+            <a href="signup.html">¿No tienes una cuenta? Regístrate aquí</a>
+        </div>
+
+    </div>
+</body>

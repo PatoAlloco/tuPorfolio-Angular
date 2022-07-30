@@ -1,0 +1,25 @@
+<main>
+    <section class="experiencia-laboral">
+        <div class="experiencia-titulo">
+            <h5>Educacion</h5>
+            <i class="fa-solid fa-circle-plus"></i>
+        </div>
+        <ul>
+            <li *ngFor="let estudio of educacion" class="trabajo">
+                <div class="experiencia-titulo">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <div>
+                        <span><strong>{{estudio.instituto.toUpperCase()}}</strong></span>
+                        <p>{{estudio.titulo}}</p>
+                        <p>{{estudio.inicio}} {{estudio.fin}}</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </div>
+            </li>
+            <hr>
+        </ul>
+    </section>
+</main>

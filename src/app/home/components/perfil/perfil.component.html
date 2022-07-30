@@ -1,0 +1,32 @@
+<main>
+    <section class="perfil">
+        <div class="portada">
+            <img src="../../../../assets/images/portada.jfif" alt="foto-portada" />
+            <i class="fa-solid fa-pen-to-square"></i>
+        </div>
+        <div class="info-perfil-box">
+            <div class="foto-perfil">
+                <div>
+                    <img [src]='miPorfolio.fotoPerfil' alt="foto perfil" />
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </div>
+                <i class="fa-solid fa-pen-to-square"></i>
+            </div>
+            <div class="info-perfil">
+                <div>
+                    <p>{{miPorfolio.nombre}} {{miPorfolio.apellido}}</p>
+                    <p>{{miPorfolio.ocupacion}}</p>
+                    <p>{{miPorfolio.ciudad}} {{miPorfolio.provincia}}</p>
+                </div>
+                <div>
+                    <a href="#">Link a Educacion</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sobre-mi">
+        <h5>Sobre Mi</h5>
+        <p>{{miPorfolio.sobreMi}}</p>
+    </section>
+
+</main>

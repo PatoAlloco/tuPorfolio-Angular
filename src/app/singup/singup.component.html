@@ -1,0 +1,59 @@
+<body>
+    <header class="container">
+        <nav>
+            <h1>tuProfolio </h1>
+            <img src="../../assets/images/arg-programa.png" alt="logo Argentina Programa">
+        </nav>
+    </header>
+
+    <div class="container">
+        <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
+            <div class="form-header">
+                <h2>tuPorfolio</h2>
+                <p class="rounded">Registrarse</p>
+            </div>
+
+            <label>Nombre</label>
+            <input id="inputNombre" type="text" 
+            [ngClass]="{'is-invalid' : Nombre?.errors && Nombre?.touched, 'is-valid' : !Nombre?.errors && Nombre?.touched}" class="form-control">
+            <div *ngIf="Nombre?.errors && Nombre?.touched">
+                <p *ngIf="Nombre?.hasError('required')" class="text-danger"> El Nombre es Requerido</p>
+                <p *ngIf="Nombre?.hasError('nombre')" class="text-danger"> Formato invalido</p>
+            </div>
+
+            <label>Apellido</label>
+            <input id="inputApellido" type="text" 
+            [ngClass]="{'is-invalid' : Apellido?.errors && Apellido?.touched, 'is-valid' : !Apellido?.errors && Apellido?.touched}" class="form-control">
+            <div *ngIf="Apellido?.errors && Apellido?.touched">
+                <p *ngIf="Apellido?.hasError('required')" class="text-danger"> El Apellido es Requerido</p>
+                <p *ngIf="Apellido?.hasError('apellido')" class="text-danger"> Formato invalido</p>
+            </div>
+
+            <label>Email</label>
+            <input id="inputEmail" type="email" 
+            [ngClass]="{'is-invalid' : Email?.errors && Email?.touched, 'is-valid' : !Email?.errors && Email?.touched}" class="form-control">
+            <div *ngIf="Email?.errors && Email?.touched">
+                <p *ngIf="Email?.hasError('required')" class="text-danger"> El mail es Requerido</p>
+                <p *ngIf="Email?.hasError('email')" class="text-danger"> Formato invalido</p>
+            </div>
+
+            <label>Contraseña</label>
+            <input id="inputPassword" type="password" 
+            [ngClass]="{'is-invalid' : Password?.errors && Password?.touched, 'is-valid' : !Password?.errors && Password?.touched}" class="form-control">
+            <div *ngIf="Password?.errors && Password?.touched">
+                <p *ngIf="Password?.hasError('required')" class="text-danger"> La contraseña es Requerida</p>
+                <p *ngIf="Password?.hasError('minlength')" class="text-danger"> La contraseña debe tener minimo 6 caracteres</p>
+            </div>
+
+            <label>Repetir contraseña</label>
+            <input id="inputPasswordRepetida" type="password">
+
+            <button type="submit">Crear Cuenta</button>
+        </form>
+
+        <div class="ingresarA">
+            <a href="index.html">¿Ya tienes una cuenta? Ingrese aquí</a>
+        </div>
+    </div>
+
+</body>

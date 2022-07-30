@@ -1,0 +1,65 @@
+{
+    "id": 7,
+    "nombre": "Fede",
+    "apellido": "Alloco",
+    "mail": "fede@hotmail.com",
+    "ocupacion": "Programador en proceso",
+    "sobreMi": null,
+    "password": "password",
+    "nacimiento": "1986-08-04T00:00:00.000+00:00",
+    "ciudad": null,
+    "provincia": null,
+    "estudios": [
+        {
+            "id": 18,
+            "instituto": "utn",
+            "titulo": "sistemas",
+            "inicio": null,
+            "fin": null
+        }
+    ],
+    "trabajos": [
+        {
+            "id": 10,
+            "empresa": "AZ",
+            "puesto": "developer",
+            "inicio": null,
+            "fin": null
+        }
+    ],
+    "proyectos": [
+        {
+            "id": 9,
+            "titulo": "Vegapp",
+            "descripcion": "app para veganos",
+            "linkRepositorio": null,
+            "inicio": "2022-06-01T00:00:00.000+00:00",
+            "fin": "2022-06-01T00:00:00.000+00:00"
+        },
+        {
+            "id": 10,
+            "titulo": "AZ",
+            "descripcion": "archivos",
+            "linkRepositorio": null,
+            "inicio": "2022-06-01T00:00:00.000+00:00",
+            "fin": "2022-06-01T00:00:00.000+00:00"
+        }
+    ],
+    "skills": [
+        {
+            "id": 31,
+            "nombre": "Empatia",
+            "porcentaje": 100
+        },
+        {
+            "id": 32,
+            "nombre": "Trabajo en Equipo",
+            "porcentaje": 90
+        },
+        {
+            "id": 33,
+            "nombre": "Comunicacion",
+            "porcentaje": 50
+        }
+    ]
+}

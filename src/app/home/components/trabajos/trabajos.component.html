@@ -1,0 +1,25 @@
+<main>
+    <section class="experiencia-laboral">
+        <div class="experiencia-titulo">
+            <h5>Experiencia Laboral</h5>
+            <i class="fa-solid fa-circle-plus"></i>
+        </div>
+        <ul>
+            <li *ngFor="let trabajo of trabajos" class="trabajo">
+                <div class="experiencia-titulo">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <div>
+                        <span><strong>{{trabajo.empresa}}</strong></span>
+                        <p>{{trabajo.puesto}}</p>
+                        <p>{{trabajo.inicio}}{{trabajo.fin}}</p>
+                    </div>
+                </div>
+                <div>
+                    <i class="fa-solid fa-circle-xmark"></i>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                </div>
+            </li>
+            <hr>
+        </ul>
+    </section>    
+</main>
