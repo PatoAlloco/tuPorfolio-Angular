@@ -11,6 +11,7 @@
                     <div>
                         <span><strong>{{proyecto.titulo}}</strong></span>
                         <p>{{proyecto.descripcion}}</p>
+                        <p>{{proyecto.inicio | date: 'y'}} - {{proyecto.fin | date: 'y'}}</p>
                         <a [href]="proyecto.linkRepositorio"><i class="fa-brands fa-github"></i></a>
                     </div>
                 </div>

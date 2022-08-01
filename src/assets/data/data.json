@@ -4,18 +4,18 @@
     "apellido": "Alloco",
     "mail": "fede@hotmail.com",
     "ocupacion": "Programador en proceso",
-    "sobreMi": null,
+    "sobreMi": "hola soy fede y trabajo en dlocal",
     "password": "password",
     "nacimiento": "1986-08-04T00:00:00.000+00:00",
-    "ciudad": null,
-    "provincia": null,
+    "ciudad": "Bell Ville",
+    "provincia": "Cordoba",
     "estudios": [
         {
             "id": 18,
             "instituto": "utn",
             "titulo": "sistemas",
-            "inicio": null,
-            "fin": null
+            "inicio": "2014-06-01",
+            "fin": "2020-06-01"
         }
     ],
     "trabajos": [
@@ -23,8 +23,8 @@
             "id": 10,
             "empresa": "AZ",
             "puesto": "developer",
-            "inicio": null,
-            "fin": null
+            "inicio": "2014-06-01",
+            "fin": "2020-06-01"
         }
     ],
     "proyectos": [
@@ -33,15 +33,15 @@
             "titulo": "Vegapp",
             "descripcion": "app para veganos",
             "linkRepositorio": null,
-            "inicio": "2022-06-01T00:00:00.000+00:00",
-            "fin": "2022-06-01T00:00:00.000+00:00"
+            "inicio": "2022-06-01",
+            "fin": "2022-06-01"
         },
         {
             "id": 10,
             "titulo": "AZ",
             "descripcion": "archivos",
             "linkRepositorio": null,
-            "inicio": "2022-06-01T00:00:00.000+00:00",
+            "inicio": "2022-06-01",
             "fin": "2022-06-01T00:00:00.000+00:00"
         }
     ],

@@ -11,9 +11,8 @@ export class PorfolioComponent implements OnInit {
 
   constructor(private porfolioService:PorfolioService, private interceptorService:InterceptorService) { }
 
-  ngOnInit(): void {
-    this.porfolioService.obtenerUsuarioLogueado().subscribe(data =>{
-      this.porfolioService.obtenerUsiarioPorId(data.getId());
+  ngOnInit(): void {    
+    this.porfolioService.obtenerUsuarioPorId().subscribe(data =>{
     });
     
 

@@ -7,14 +7,19 @@ import { Observable } from 'rxjs';
 })
 export class PorfolioService {
   url:string = "localhost:8080/usuario/";
-  constructor( private http:HttpClient) { }
+  idUsuario:number = 0;
+  constructor( private http:HttpClient) {
+    this.obtenerUsuarioLogueado().subscribe( data =>{
+      this.idUsuario = data.id
+    })
+  }
 
   obtenerDatos():Observable<any>{
     return this.http.get('./assets/data/data.json');
   }
 
-  obtenerUsiarioPorId(id:BigInt):Observable<any>{
-    return this.http.get(this.url + id);
+  obtenerUsuarioPorId():Observable<any>{
+    return this.http.get(this.url + this.idUsuario);
   }
 
   obtenerUsuarioLogueado():Observable<any>{

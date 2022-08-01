@@ -11,7 +11,7 @@
                     <div>
                         <span><strong>{{trabajo.empresa}}</strong></span>
                         <p>{{trabajo.puesto}}</p>
-                        <p>{{trabajo.inicio}}{{trabajo.fin}}</p>
+                        <p>{{trabajo.inicio | date:'y'}} - {{trabajo.fin | date:'y'}}</p>
                     </div>
                 </div>
                 <div>
