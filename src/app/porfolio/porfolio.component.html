@@ -1,9 +1,9 @@
 <app-header></app-header>
 
-    <app-perfil></app-perfil>
-    <app-trabajos></app-trabajos>
-    <app-educacion></app-educacion>
-    <app-softskills></app-softskills>
-    <app-proyectos></app-proyectos>
+    <app-perfil *ngIf="idUsuario" [idUsuario]="idUsuario"></app-perfil>
+    <app-trabajos *ngIf="idUsuario" [usuario]="usuario"></app-trabajos>
+    <app-educacion *ngIf="idUsuario" [usuario]="usuario"></app-educacion>
+    <app-softskills *ngIf="idUsuario" [usuario]="usuario"></app-softskills>
+    <app-proyectos *ngIf="idUsuario" [usuario]="usuario"></app-proyectos>
 
 <app-footer></app-footer>

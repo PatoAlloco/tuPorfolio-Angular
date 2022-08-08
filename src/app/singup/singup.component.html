@@ -31,7 +31,8 @@
 
             <label>Email</label>
             <input id="inputEmail" type="email" 
-            [ngClass]="{'is-invalid' : Email?.errors && Email?.touched, 'is-valid' : !Email?.errors && Email?.touched}" class="form-control">
+            [ngClass]="{'is-invalid' : Email?.errors && Email?.touched, 'is-valid' : !Email?.errors && Email?.touched}" class="form-control"
+            >
             <div *ngIf="Email?.errors && Email?.touched">
                 <p *ngIf="Email?.hasError('required')" class="text-danger"> El mail es Requerido</p>
                 <p *ngIf="Email?.hasError('email')" class="text-danger"> Formato invalido</p>

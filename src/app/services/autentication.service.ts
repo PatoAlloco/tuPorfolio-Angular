@@ -1,29 +1,38 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { AuthModel } from '../models/usuario.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AutenticationService {
-  url = "http://urlapi";
-  currentUserSubject: BehaviorSubject<any>;
+  url = "http://localhost:8080/login";
+  currentUserSubject: BehaviorSubject<AuthModel>;
 
   constructor(private http:HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem('currentUser') || '{}'));    
+    this.currentUserSubject = new BehaviorSubject<AuthModel>(JSON.parse(sessionStorage.getItem('currentUser') || '{}'));    
   }
 
-IniciarSesion(credenciales:any):Observable<any>{
-  return this.http.post(this.url, credenciales).pipe(map(data =>{
-    sessionStorage.setItem('currentUser', JSON.stringify(data));
-    this.currentUserSubject.next(data);
-    return data;
-  }))
-}
+  IniciarSesion(credenciales:any):Observable<any>{
+    let auth:AuthModel;
+    let token:any; 
 
-get UsuarioAutenticado(){
-  return this.currentUserSubject.value;
-}
+    return this.http.post(this.url,  credenciales, {observe: 'response'}).pipe(map(data =>{
+      if (data.headers.get('Authorization') !== null) {
+        token = data.headers.get('Authorization')
+      }
+      
+      auth = new AuthModel(token);
+      sessionStorage.setItem('currentUser', JSON.stringify(auth));
+      this.currentUserSubject.next(auth);
+      return data;
+    }))
+  }
+
+  get UsuarioAutenticado(){
+    return this.currentUserSubject.value;
+  }
 
 }

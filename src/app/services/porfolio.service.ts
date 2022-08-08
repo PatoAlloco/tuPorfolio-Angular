@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -6,24 +6,24 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PorfolioService {
-  url:string = "localhost:8080/usuario/";
-  idUsuario:number = 0;
-  constructor( private http:HttpClient) {
-    this.obtenerUsuarioLogueado().subscribe( data =>{
-      this.idUsuario = data.id
-    })
+  url:string = "http://localhost:8080/usuario/";
+  usuario:any;
+
+  constructor( private http:HttpClient) {   
+
   }
 
   obtenerDatos():Observable<any>{
-    return this.http.get('./assets/data/data.json');
+    // return this.http.get('./assets/data/data.json');
+    return this.http.get(this.url );
   }
 
-  obtenerUsuarioPorId():Observable<any>{
-    return this.http.get(this.url + this.idUsuario);
+  obtenerUsuarioPorId(id:BigInt):Observable<any>{    
+    return this.http.get(this.url + id);
   }
 
   obtenerUsuarioLogueado():Observable<any>{
-    return this.http.get(this.url + 'actual');
+  return this.http.get(this.url + 'actual');
   }
 
   editarUsuario(id:BigInt, usuario:any):Observable<any>{

@@ -4,9 +4,11 @@
             <h5>SoftSkills</h5>
             <i class="fa-solid fa-circle-plus"></i>
         </div>
-        <div *ngFor="let habilidad of skills" class="progress">
-            <div class="progress-bar" role="progressbar" [ngStyle]="{'width.%': habilidad.porcentaje}" aria-valuenow=""
-                aria-valuemin="0" aria-valuemax="100">{{habilidad.nombre}} {{habilidad.porcentaje}}%</div>
+        <div>
+            <div *ngFor="let habilidad of usuario.skills" class="progress">
+                <div class="progress-bar" role="progressbar" [ngStyle]="{'width.%': habilidad.porcentaje}" aria-valuenow=""
+                    aria-valuemin="0" aria-valuemax="100">{{habilidad.nombre}} {{habilidad.porcentaje}}%</div>
+            </div>
         </div>
     </section>
 </main>

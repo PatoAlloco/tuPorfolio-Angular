@@ -53,22 +53,27 @@ section div.portada{
     padding-left: 5vw;
     padding-right: 5vw;
     background-color: rgb(223, 236, 241);
-    background-color: red;
-    background-image: url(/src/assets/images/portada.jfif);
+    /* background-color: red; */
+    /* background-image: url(/src/assets/images/portada.jfif); */
     height: 15vw;   
     border-top-left-radius: 10px;
     border-top-right-radius: 10px; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+    max-width: 100%;
+    max-height: 100%;
 }
 .portada {
     background-image: url(/src/assets/images/fondoLogin.jpg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
+    background-size: auto;
 }
 
 section.perfil img{
-    width: 10vw;
-    border-radius: 50%;
+    width: 13vw;
+
 }
 
 section div.info-perfil-box{    

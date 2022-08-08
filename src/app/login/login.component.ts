@@ -14,10 +14,7 @@ export class LoginComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       mail:['',[Validators.required, Validators.email]],
-      password:['', [Validators.required, Validators.minLength(6)]],
-      deviceId: ["6561656"],
-      deviceType: ["DEVICE_TYPE_ANDROID"],
-      notificationToken: ["6565165651"]
+      password:['', [Validators.required, Validators.minLength(6)]]
     })
 
   }
@@ -35,6 +32,7 @@ export class LoginComponent implements OnInit {
   onEnviar(event:Event){
     event.preventDefault;
     this.autenticactionService.IniciarSesion(this.form.value).subscribe(data =>{
+      
       this.ruta.navigate(['/home']);
     })
   }

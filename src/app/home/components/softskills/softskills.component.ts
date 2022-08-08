@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { PorfolioService } from 'src/app/services/porfolio.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-softskills',
@@ -7,16 +6,12 @@ import { PorfolioService } from 'src/app/services/porfolio.service';
   styleUrls: ['./softskills.component.css']
 })
 export class SoftskillsComponent implements OnInit {
-
-  skills:any;
-  constructor( private datosPorfolio:PorfolioService) { }
+  @Input() usuario:any;
+  
+  constructor() { }
 
   ngOnInit(): void {
 
-    this.datosPorfolio.obtenerDatos().subscribe(data =>{
-      console.log(data); 
-      this.skills = data.skills;     
-    });
   }
 
 }

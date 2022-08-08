@@ -1,22 +1,26 @@
-<main>
+<main *ngIf="mostrar">
     <section class="perfil">
-        <div class="portada">
-            <img src="../../../../assets/images/portada.jfif" alt="foto-portada" />
+        <div class="portada ">
+            <img [src]='fotoPortada' alt="foto-portada" style="max-width: 100%;
+            max-height: 100%;" />
             <i class="fa-solid fa-pen-to-square"></i>
+    
+
+
         </div>
         <div class="info-perfil-box">
             <div class="foto-perfil">
                 <div>
-                    <img [src]='miPorfolio.fotoPerfil' alt="foto perfil" />
+                    <img [src]='fotoPerfil' alt="foto perfil" class="rounded-circle" />
                     <i class="fa-solid fa-pen-to-square"></i>
                 </div>
                 <i class="fa-solid fa-pen-to-square"></i>
             </div>
             <div class="info-perfil">
                 <div>
-                    <p>{{miPorfolio.nombre}} {{miPorfolio.apellido}}</p>
+                    <p>{{miPorfolio.nombre + " " + miPorfolio.apellido}}</p>
                     <p>{{miPorfolio.ocupacion}}</p>
-                    <p>{{miPorfolio.ciudad}} {{miPorfolio.provincia}}</p>
+                    <p>{{miPorfolio.ciudad + " " + miPorfolio.provincia }}</p>
                 </div>
                 <div>
                     <a href="#">Link a Educacion</a>
@@ -28,5 +32,9 @@
         <h5>Sobre Mi</h5>
         <p>{{miPorfolio.sobreMi}}</p>
     </section>
+
+    
+
+
 
 </main>

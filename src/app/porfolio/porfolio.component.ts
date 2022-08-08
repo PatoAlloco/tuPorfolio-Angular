@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { InterceptorService } from '../services/interceptor.service';
 import { PorfolioService } from '../services/porfolio.service';
 
 @Component({
@@ -8,16 +7,17 @@ import { PorfolioService } from '../services/porfolio.service';
   styleUrls: ['./porfolio.component.css']
 })
 export class PorfolioComponent implements OnInit {
+  idUsuario:any;
+  usuario:any;
 
-  constructor(private porfolioService:PorfolioService, private interceptorService:InterceptorService) { }
+  constructor(private porfolioService:PorfolioService) {}
 
-  ngOnInit(): void {    
-    this.porfolioService.obtenerUsuarioPorId().subscribe(data =>{
-    });
-    
-
+  ngOnInit(): void {
+    this.porfolioService.obtenerUsuarioLogueado().subscribe( data =>{
+      this.idUsuario = data.id
+      this.porfolioService.obtenerUsuarioPorId(this.idUsuario).subscribe(data => {
+        this.usuario = data;
+      })
+    })
   }
-
-
-  
 }
