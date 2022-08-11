@@ -10,7 +10,9 @@ import { AutenticationService } from '../services/autentication.service';
 })
 export class LoginComponent implements OnInit {
   form:FormGroup;
-  constructor(private formBuilder:FormBuilder, private autenticactionService:AutenticationService, private ruta:Router) {
+  constructor(private formBuilder:FormBuilder, 
+              private autenticactionService:AutenticationService, 
+              private ruta:Router) {
 
     this.form = this.formBuilder.group({
       mail:['',[Validators.required, Validators.email]],

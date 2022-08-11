@@ -1,0 +1,25 @@
+<body>
+    <div class="container">
+        <form class="m-5" [formGroup]="form" (ngSubmit)="agregarTrabajo($event)">
+            <div class="form-group">
+                <label for="exampleInputTrabajo">Empresa</label>
+                <input type="text" class="form-control" id="empresa" name="empresa" formControlName="empresa">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPuesto">Puesto</label>
+                <input type="text" class="form-control" id="puesto" name="puesto" formControlName="puesto">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputInicio">Inicio</label>
+                <input type="date" class="form-control" id="inicio" name="inicio" formControlName="inicio">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputFin">Fin</label>
+                <input type="date" class="form-control" id="fin" name="fin" formControlName="fin">
+            </div>
+            
+            <button type="button" (click)="volverHome()" class="btn btn-danger">Cancelar</button>
+            <button type="submit" class="btn btn-success">Agregar</button>
+        </form>
+    </div>
+</body>

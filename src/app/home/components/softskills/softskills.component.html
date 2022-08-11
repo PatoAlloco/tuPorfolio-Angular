@@ -2,12 +2,14 @@
     <section class="sobre-mi experiencia-laboral">
         <div class="experiencia-titulo">
             <h5>SoftSkills</h5>
-            <i class="fa-solid fa-circle-plus"></i>
+            <i (click)="irAPantallaAgregar()" class="fa-solid fa-circle-plus"></i>
         </div>
         <div>
-            <div *ngFor="let habilidad of usuario.skills" class="progress">
+            <div *ngFor="let habilidad of usuario.skills" class="progress" style="height: 25px;">
                 <div class="progress-bar" role="progressbar" [ngStyle]="{'width.%': habilidad.porcentaje}" aria-valuenow=""
-                    aria-valuemin="0" aria-valuemax="100">{{habilidad.nombre}} {{habilidad.porcentaje}}%</div>
+                    aria-valuemin="0" aria-valuemax="100">{{habilidad.nombre}} {{habilidad.porcentaje}}%</div>  
+                    <i (click)="irAPantallaEditar(habilidad.id)" class="fa-solid fa-pen-to-square iconoSkill"></i>
+                    <i class="fa-solid fa-circle-xmark iconoSkill"></i>
             </div>
         </div>
     </section>

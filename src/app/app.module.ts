@@ -20,6 +20,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { InterceptorService } from './services/interceptor.service';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditarEducacionComponent } from './editar/editar-educacion/editar-educacion.component';
+import { AgregarEducacionComponent } from './agregar/agregar-educacion/agregar-educacion.component';
+import { AgregarProyectoComponent } from './agregar/agregar-proyecto/agregar-proyecto.component';
+import { EditarProyectoComponent } from './editar/editar-proyecto/editar-proyecto.component';
+import { AgregarSkillComponent } from './agregar/agregar-skill/agregar-skill.component';
+import { EditarSkillComponent } from './editar/editar-skill/editar-skill.component';
+import { AgregarTrabajoComponent } from './agregar/agregar-trabajo/agregar-trabajo.component';
+import { EditarTrabajoComponent } from './editar/editar-trabajo/editar-trabajo.component';
 
 
 @NgModule({
@@ -34,7 +42,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FooterComponent,
     PorfolioComponent,
     SingupComponent,
-    LoginComponent
+    LoginComponent,
+    EditarEducacionComponent,
+    AgregarEducacionComponent,
+    AgregarProyectoComponent,
+    EditarProyectoComponent,
+    AgregarSkillComponent,
+    EditarSkillComponent,
+    AgregarTrabajoComponent,
+    EditarTrabajoComponent,
   ],
   imports: [
     BrowserModule,

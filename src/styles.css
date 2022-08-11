@@ -140,6 +140,10 @@ section.experiencia-laboral ul li div i{
 .progress{
     margin-top: 1vw;
 }
+.iconoSkill{
+    margin: 0.4vw;
+    font-size: large;
+}
 
 /*=========Footer======*/
 footer img{

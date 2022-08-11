@@ -1,0 +1,16 @@
+<body>
+    <div class="container">
+        <form class="m-5" [formGroup]="form" (ngSubmit)="editarSkill($event)">
+            <div class="form-group">
+                <label for="exampleInputSkill">Habilidad</label>
+                <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPorcentaje">Porcentaje</label>
+                <input type="number" class="form-control" id="porcentaje" name="porcentaje" formControlName="porcentaje">
+            </div>            
+            <button type="button" (click)="volverHome()" class="btn btn-danger">Cancelar</button>
+            <button type="submit" class="btn btn-success">Agregar</button>
+        </form>
+    </div>
+</body>

@@ -23,7 +23,7 @@ export class PorfolioService {
   }
 
   obtenerUsuarioLogueado():Observable<any>{
-  return this.http.get(this.url + 'actual');
+    return this.http.get(this.url + 'actual');
   }
 
   editarUsuario(id:BigInt, usuario:any):Observable<any>{

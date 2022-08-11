@@ -2,7 +2,7 @@
     <section class="experiencia-laboral">
         <div class="experiencia-titulo">
             <h5>Proyectos</h5>
-            <i class="fa-solid fa-circle-plus"></i>
+            <i (click)="irAPantallaAgregar()" class="fa-solid fa-circle-plus"></i>
         </div>
         <ul>
             <li *ngFor="let proyecto of usuario.proyectos" class="trabajo">
@@ -17,7 +17,7 @@
                 </div>
                 <div>
                     <i class="fa-solid fa-circle-xmark"></i>
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <i (click)="irAPantallaEditar(proyecto.id)" class="fa-solid fa-pen-to-square"></i>
                 </div>
             </li>
             <hr>

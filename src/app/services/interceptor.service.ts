@@ -23,8 +23,8 @@ export class InterceptorService implements HttpInterceptor {
               Authorization: auth.token,
               "Content-Type": "application/json"
             })
-         });
-     
+        });
+  
         return next.handle(clonedRequest);
     }
         

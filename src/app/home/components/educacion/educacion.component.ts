@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { PorfolioService } from 'src/app/services/porfolio.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-educacion',
@@ -10,10 +10,17 @@ export class EducacionComponent implements OnInit {
   @Input() usuario:any;
 
 
-  constructor( ) { }
+  constructor( private ruta:Router ) { }
 
   ngOnInit(): void {
 
   }
 
+  irAPantallaAgregar() {
+    this.ruta.navigate(['/agregar-educacion']);
+  }
+
+  irAPantallaEditar(idEstudio:any) { 
+    this.ruta.navigate(['/editar-educacion', idEstudio]);
+  }
 }
