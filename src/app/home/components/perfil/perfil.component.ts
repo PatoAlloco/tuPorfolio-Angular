@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PorfolioService } from 'src/app/services/porfolio.service';
 
 @Component({
@@ -16,10 +17,8 @@ export class PerfilComponent implements OnInit {
 
   mostrar:boolean = false;
 
-  constructor( private datosPorfolio:PorfolioService) { 
-
-  }
-
+  constructor(private datosPorfolio:PorfolioService,
+              private ruta:Router ) {  }
 
   ngOnInit(): void {
     this.datosPorfolio.obtenerUsuarioPorId(this.idUsuario).subscribe(data =>{
@@ -35,5 +34,12 @@ export class PerfilComponent implements OnInit {
     })
 
   }
+  
+  irAPantallaEditar(idPerfil:any) { 
+    this.ruta.navigate(['/editar-perfil', idPerfil]);
+  }
 
+  irAPantallaEditarFotoPerfil(idPerfil:any) { 
+    this.ruta.navigate(['/editar-foto-perfil', idPerfil]);
+  }
 }

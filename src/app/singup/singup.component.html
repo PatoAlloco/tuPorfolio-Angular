@@ -14,7 +14,7 @@
             </div>
 
             <label>Nombre</label>
-            <input id="inputNombre" type="text" 
+            <input id="nombre" type="text" formControlName="nombre"
             [ngClass]="{'is-invalid' : Nombre?.errors && Nombre?.touched, 'is-valid' : !Nombre?.errors && Nombre?.touched}" class="form-control">
             <div *ngIf="Nombre?.errors && Nombre?.touched">
                 <p *ngIf="Nombre?.hasError('required')" class="text-danger"> El Nombre es Requerido</p>
@@ -22,7 +22,7 @@
             </div>
 
             <label>Apellido</label>
-            <input id="inputApellido" type="text" 
+            <input id="inputApellido" type="text" formControlName="apellido"
             [ngClass]="{'is-invalid' : Apellido?.errors && Apellido?.touched, 'is-valid' : !Apellido?.errors && Apellido?.touched}" class="form-control">
             <div *ngIf="Apellido?.errors && Apellido?.touched">
                 <p *ngIf="Apellido?.hasError('required')" class="text-danger"> El Apellido es Requerido</p>
@@ -30,7 +30,7 @@
             </div>
 
             <label>Email</label>
-            <input id="inputEmail" type="email" 
+            <input id="inputEmail" type="email" formControlName="mail"
             [ngClass]="{'is-invalid' : Email?.errors && Email?.touched, 'is-valid' : !Email?.errors && Email?.touched}" class="form-control"
             >
             <div *ngIf="Email?.errors && Email?.touched">
@@ -39,7 +39,7 @@
             </div>
 
             <label>Contraseña</label>
-            <input id="inputPassword" type="password" 
+            <input id="inputPassword" type="password" formControlName="password"
             [ngClass]="{'is-invalid' : Password?.errors && Password?.touched, 'is-valid' : !Password?.errors && Password?.touched}" class="form-control">
             <div *ngIf="Password?.errors && Password?.touched">
                 <p *ngIf="Password?.hasError('required')" class="text-danger"> La contraseña es Requerida</p>

@@ -14,6 +14,8 @@ import { AgregarSkillComponent } from './agregar/agregar-skill/agregar-skill.com
 import { EditarSkillComponent } from './editar/editar-skill/editar-skill.component';
 import { AgregarTrabajoComponent } from './agregar/agregar-trabajo/agregar-trabajo.component';
 import { EditarTrabajoComponent } from './editar/editar-trabajo/editar-trabajo.component';
+import { EditarPerfilComponent } from './editar/editar-perfil/editar-perfil.component';
+import { EditarFotoPerfilComponent } from './editar/editar-foto-perfil/editar-foto-perfil.component';
 
 
 const routes: Routes = [
@@ -30,6 +32,8 @@ const routes: Routes = [
   {path:'editar-proyecto/:id', component:EditarProyectoComponent},
   {path:'editar-skill/:id', component:EditarSkillComponent},
   {path:'editar-trabajo/:id', component:EditarTrabajoComponent},
+  {path:'editar-perfil/:id', component:EditarPerfilComponent},
+  {path:'editar-foto-perfil/:id', component:EditarFotoPerfilComponent},
   
   {path:'', redirectTo:'login', pathMatch:'full'}
 ];

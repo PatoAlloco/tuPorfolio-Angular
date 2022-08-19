@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AutenticationService } from '../services/autentication.service';
+import { PorfolioService } from '../services/porfolio.service';
 
 @Component({
   selector: 'app-singup',
@@ -12,7 +13,7 @@ export class SingupComponent implements OnInit {
   form:FormGroup;
   
 
-  constructor(private formBuilder:FormBuilder, private autenticactionService:AutenticationService, 
+  constructor(private formBuilder:FormBuilder, private portfolioService:PorfolioService, 
     private ruta:Router) { 
     
     this.form = this.formBuilder.group({
@@ -44,9 +45,11 @@ export class SingupComponent implements OnInit {
   }
 
   onEnviar(event:Event){
+    console.log(this.form);
+    
     event.preventDefault;
-    this.autenticactionService.IniciarSesion(this.form.value).subscribe(data =>{
-      this.ruta.navigate(['/home']);
+    this.portfolioService.crearUsuario(this.form.value).subscribe(data =>{
+      this.ruta.navigate(['/login']);
     })
   }
 

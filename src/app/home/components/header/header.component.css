@@ -1,0 +1,33 @@
+header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vw;
+    height: 5vw;
+    background-color: rgb(194, 208, 214);
+    margin-bottom: 1vw;    
+}
+header img{
+    height: 3.5vw;
+}
+header i{
+    font-size: x-large;
+    color: #676781;
+    margin: 0.5vw;
+}
+header button{
+    margin-bottom: 0.5vw;
+}
+.facebook:hover{
+    color: rgb(15, 64, 223);
+}
+.instagram:hover{
+    color: rgb(224, 21, 123);
+}
+.twitter:hover{
+    color: rgb(11, 112, 206);
+}
+.github:hover{
+    color: rgb(4, 8, 20);
+}

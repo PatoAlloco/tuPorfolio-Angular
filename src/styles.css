@@ -2,6 +2,7 @@
     box-sizing: border-box;
     margin: 0;
 }
+
 body{
     background: rgb(249, 249, 249);
     font-family: 'Be Vietnam Pro', sans-serif;
@@ -17,11 +18,11 @@ li{
     border-radius: 10px;
 }
 main{
-    padding: 0vw 7vw;
+    padding: 0vw 9vw;
 }
 /*=======Header=========*/
 
-header{
+/* header{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -41,7 +42,7 @@ header i{
 }
 header button{
     margin-bottom: 0.5vw;
-}
+} */
 
 /*=======Body======*/
 /*=====Perfil======*/
@@ -50,11 +51,11 @@ section div.portada{
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: flex-start;
-    padding-left: 5vw;
-    padding-right: 5vw;
+    /* padding-left: 5vw;
+    padding-right: 5vw; */
     background-color: rgb(223, 236, 241);
-    /* background-color: red; */
-    /* background-image: url(/src/assets/images/portada.jfif); */
+    background-color: red;
+    background-image: url(/src/assets/images/portada.jpg);
     height: 15vw;   
     border-top-left-radius: 10px;
     border-top-right-radius: 10px; 
@@ -63,18 +64,36 @@ section div.portada{
     background-size: auto;
     max-width: 100%;
     max-height: 100%;
-}
-.portada {
-    background-image: url(/src/assets/images/fondoLogin.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: auto;
+    
 }
 
-section.perfil img{
-    width: 13vw;
-
+.button-icon-add:hover{
+    color: rgba(52, 134, 4, 0.973);    
 }
+.button-icon-remove:hover{
+    color: rgba(255, 0, 0, 0.555);    
+}
+.button-icon-edit:hover{
+    color: rgb(3, 39, 158);
+}
+.facebook:hover{
+    color: rgb(15, 64, 223);
+}
+.instagram:hover{
+    color: rgb(224, 21, 123);
+}
+.twitter:hover{
+    color: rgb(11, 112, 206);
+}
+.github:hover{
+    color: rgb(4, 8, 20);
+}
+
+.foto-perfil div img{
+    display: inline-block; position: relative; width: 300px; height: 300px; overflow: hidden; border-radius: 50%; 
+}
+
+
 
 section div.info-perfil-box{    
     padding-left: 5vw;
@@ -93,6 +112,7 @@ section div.info-perfil-box{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+    
 }
 
 /*========Acerca de mi==========*/

@@ -1,35 +1,31 @@
 <main *ngIf="mostrar">
     <section class="perfil">
-        <div class="portada ">
-            <img [src]='fotoPortada' alt="foto-portada" style="max-width: 100%;
-            max-height: 100%;" />
-            <i class="fa-solid fa-pen-to-square"></i>
-    
-
-
+        <div class="portada">
+            <img [src]='fotoPortada' alt="foto-portada" class="foto-portada"/>
+            <i class="button-icon-edit fa-solid fa-pen-to-square"></i>
         </div>
         <div class="info-perfil-box">
             <div class="foto-perfil">
                 <div>
-                    <img [src]='fotoPerfil' alt="foto perfil" class="rounded-circle" />
-                    <i class="fa-solid fa-pen-to-square"></i>
+                    <img [src]='fotoPerfil' alt="foto perfil" class="foto-perfil" />
+                    <i (click)="irAPantallaEditarFotoPerfil(miPorfolio.id)" class="button-icon-edit fa-solid fa-pen-to-square"></i>
                 </div>
-                <i class="fa-solid fa-pen-to-square"></i>
             </div>
             <div class="info-perfil">
                 <div>
-                    <p>{{miPorfolio.nombre + " " + miPorfolio.apellido}}</p>
-                    <p>{{miPorfolio.ocupacion}}</p>
-                    <p>{{miPorfolio.ciudad + " " + miPorfolio.provincia }}</p>
+                    <h2>{{miPorfolio.nombre + " " + miPorfolio.apellido}}</h2>
+                    <b>{{miPorfolio.ocupacion}}</b>
+                    <p>{{miPorfolio.ciudad + " - " + miPorfolio.provincia }}</p>
                 </div>
-                <div>
-                    <a href="#">Link a Educacion</a>
+                <div class="pull-right">
+                    <i (click)="irAPantallaEditar(miPorfolio.id)" class="button-icon-edit fa-solid fa-pen-to-square"></i>
+
                 </div>
             </div>
         </div>
     </section>
     <section class="sobre-mi">
-        <h5>Sobre Mi</h5>
+        <h5>Sobre mí</h5>
         <p>{{miPorfolio.sobreMi}}</p>
     </section>
 

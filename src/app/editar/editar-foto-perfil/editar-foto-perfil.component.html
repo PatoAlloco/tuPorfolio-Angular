@@ -1,0 +1,13 @@
+<body>
+    <div class="container">
+        <form class="m-5" [formGroup]="form" (ngSubmit)="editarFotoPerfil()">
+            <div class="form-group">
+                <label for="exampleInputNombre">Selecciona tu foto de perfil</label>
+                <input type="file" name="file" class="form-control" (change)="seleccionFoto($event)" accept="image/x-png,image/jpeg" required>
+            </div>
+            
+            <button type="button" (click)="volverHome()" class="btn btn-danger">Cancelar</button>
+            <button type="submit" class="btn btn-success" [disabled]="this.foto == null">Agregar</button>
+        </form>
+    </div>
+</body>

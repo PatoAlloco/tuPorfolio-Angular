@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { PorfolioService } from 'src/app/services/porfolio.service';
 
 @Component({
   selector: 'app-softskills',
@@ -9,7 +10,8 @@ import { Router } from '@angular/router';
 export class SoftskillsComponent implements OnInit {
   @Input() usuario:any;
   
-  constructor(private ruta:Router) { }
+  constructor(private ruta:Router,
+              private porfolioService:PorfolioService) { }
 
   ngOnInit(): void {
 
@@ -23,4 +25,15 @@ export class SoftskillsComponent implements OnInit {
     this.ruta.navigate(['/editar-skill', idSkill]);
   }
 
+  eliminarSkill(idSkill:BigInt){
+    const confirmacion = confirm('¿Seguro desea eliminar esta habilidad?');
+    if(confirmacion){
+      this.porfolioService.eliminarSkill(this.usuario.id, idSkill).subscribe( data =>{
+        console.log(data);
+        this.ruta.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.ruta.onSameUrlNavigation = 'reload';
+        this.ruta.navigate([this.ruta.url]);
+        })
+    }
+  }
 }

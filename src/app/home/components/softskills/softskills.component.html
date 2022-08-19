@@ -2,15 +2,18 @@
     <section class="sobre-mi experiencia-laboral">
         <div class="experiencia-titulo">
             <h5>SoftSkills</h5>
-            <i (click)="irAPantallaAgregar()" class="fa-solid fa-circle-plus"></i>
+            <i (click)="irAPantallaAgregar()" class="button-icon-add fa-solid fa-circle-plus"></i>
         </div>
         <div>
-            <div *ngFor="let habilidad of usuario.skills" class="progress" style="height: 25px;">
-                <div class="progress-bar" role="progressbar" [ngStyle]="{'width.%': habilidad.porcentaje}" aria-valuenow=""
-                    aria-valuemin="0" aria-valuemax="100">{{habilidad.nombre}} {{habilidad.porcentaje}}%</div>  
-                    <i (click)="irAPantallaEditar(habilidad.id)" class="fa-solid fa-pen-to-square iconoSkill"></i>
-                    <i class="fa-solid fa-circle-xmark iconoSkill"></i>
+            <div *ngFor="let habilidad of usuario.skills" class="progress" style="height: 30px;">
+                <span class="progress-bar" role="progressbar" [ngStyle]="{'width.%': habilidad.porcentaje}"
+                    aria-valuenow="" aria-valuemin="0" aria-valuemax="100">{{habilidad.nombre.toUpperCase()}}
+                    {{habilidad.porcentaje}}%
+                </span>
+                <i (click)="eliminarSkill(habilidad.id)" class="button-icon-remove fa-solid fa-circle-xmark iconoSkill"></i>
+                <i (click)="irAPantallaEditar(habilidad.id)" class="button-icon-edit fa-solid fa-pen-to-square iconoSkill"></i>
             </div>
+
         </div>
     </section>
 </main>

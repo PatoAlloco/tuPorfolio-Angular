@@ -2,21 +2,21 @@
     <section class="experiencia-laboral">
         <div class="experiencia-titulo">
             <h5>Experiencia Laboral</h5>
-            <i (click)="irAPantallaAgregar()" class="fa-solid fa-circle-plus"></i>
+            <i (click)="irAPantallaAgregar()" class="button-icon-add fa-solid fa-circle-plus"></i>
         </div>
         <ul>
             <li *ngFor="let trabajo of usuario.trabajos" class="trabajo">
                 <div class="experiencia-titulo">
                     <i class="fa-solid fa-briefcase"></i>
                     <div>
-                        <span><strong>{{trabajo.empresa}}</strong></span>
+                        <span><strong>{{trabajo.empresa.toUpperCase()}}</strong></span>
                         <p>{{trabajo.puesto}}</p>
                         <p>{{trabajo.inicio | date:'y'}} - {{trabajo.fin | date:'y'}}</p>
                     </div>
                 </div>
                 <div>
-                    <i class="fa-solid fa-circle-xmark"></i>
-                    <i (click)="irAPantallaEditar(trabajo.id)" class="fa-solid fa-pen-to-square"></i>
+                    <i (click)="eliminarTrabajo(trabajo.id)" class="button-icon-remove fa-solid fa-circle-xmark "></i>
+                    <i (click)="irAPantallaEditar(trabajo.id)" class="button-icon-edit fa-solid fa-pen-to-square"></i>
                 </div>
             </li>
             <hr>

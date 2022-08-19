@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PorfolioService } from 'src/app/services/porfolio.service';
 
 @Component({
@@ -8,9 +9,19 @@ import { PorfolioService } from 'src/app/services/porfolio.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor( private datosPorfolio:PorfolioService) { }
+  constructor(private datosPorfolio:PorfolioService,
+              private ruta:Router) { }
 
   ngOnInit(): void {
   }
 
+  cerrarSesion(){
+    const confirmacion = confirm('¿Seguro desea cerrar sesión?');
+    console.log("cerrar sesion");
+    
+    if(confirmacion){
+      // sessionStorage.removeItem('token')
+      this.ruta.navigate(['/login'])
+    }
+  }
 }

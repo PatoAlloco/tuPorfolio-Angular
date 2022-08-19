@@ -42,7 +42,7 @@ export class AgregarEducacionComponent implements OnInit {
   agregarEducacion(event:Event){
     event.preventDefault;
 
-    this.porfolioService.cargarEeducacion(this.usuario.id, this.form.value).subscribe( data =>{
+    this.porfolioService.cargarEducacion(this.usuario.id, this.form.value).subscribe( data =>{
       console.log(this.form.value);
       this.ruta.navigate(['/home']);
     })

@@ -17,6 +17,10 @@ export class PorfolioService {
     // return this.http.get('./assets/data/data.json');
     return this.http.get(this.url );
   }
+  
+  crearUsuario(u:any):Observable<any>{
+    return this.http.post(this.url, u);
+  }
 
   obtenerUsuarioPorId(id:BigInt):Observable<any>{    
     return this.http.get(this.url + id);
@@ -36,7 +40,10 @@ export class PorfolioService {
   }
 
   cargarFotoPerfil(id:BigInt, archivo:FormData):Observable<any>{
-    return this.http.patch(this.url + id + '/foto-perfil', archivo );
+    let headers = new HttpHeaders();
+    headers.append('Content-Type','multipart/form-data');
+      
+    return this.http.patch(this.url + id + '/foto-perfil', archivo, { headers: headers});
   }
 
   obtenerFotoPortada(id:BigInt):Observable<any>{
@@ -54,19 +61,20 @@ export class PorfolioService {
   editarTrabajo(id:BigInt, trabajo:any, idTrabajo:BigInt):Observable<any>{
     return this.http.put(this.url + id + '/trabajo/' + idTrabajo, trabajo);
   }
-  eliminarTrabajo(id:BigInt, trabajo:any, idTrabajo:BigInt):Observable<any>{
-    return this.http.delete(this.url + id + '/trabajo/' + idTrabajo, trabajo);
+  eliminarTrabajo(id:BigInt, idTrabajo:BigInt):Observable<any>{
+    return this.http.delete(this.url + id + '/trabajo/' + idTrabajo);
   }
 
   //===========EDUCACION=========//
-  cargarEeducacion(id:BigInt, educacion:any):Observable<any>{
+  cargarEducacion(id:BigInt, educacion:any):Observable<any>{
     return this.http.post(this.url + id + '/educacion', educacion);
   }
-  editarEeducacion(id:BigInt, educacion:any, idEducacion:BigInt):Observable<any>{
+  editarEducacion(id:BigInt, educacion:any, idEducacion:BigInt):Observable<any>{
     return this.http.put(this.url + id + '/educacion/' + idEducacion, educacion);
   }
-  eliminarEeducacion(id:BigInt, educacion:any, idEducacion:BigInt):Observable<any>{
-    return this.http.delete(this.url + id + '/educacion/' + idEducacion, educacion);
+
+  eliminarEducacion(id:BigInt, idEducacion:BigInt):Observable<any>{
+    return this.http.delete(this.url + id + '/educacion/' + idEducacion);
   }
 
   //===========PROYECTOS==========//
@@ -76,8 +84,8 @@ export class PorfolioService {
   editarProyecto(id:BigInt, proyecto:any, idProyecto:BigInt):Observable<any>{
     return this.http.put(this.url + id + '/proyecto/' + idProyecto, proyecto);
   }
-  eliminarProyecto(id:BigInt, proyecto:any, idProyecto:BigInt):Observable<any>{
-    return this.http.delete(this.url + id + '/proyecto/' + idProyecto, proyecto);
+  eliminarProyecto(id:BigInt, idProyecto:BigInt):Observable<any>{
+    return this.http.delete(this.url + id + '/proyecto/' + idProyecto);
   }
 
   //============SKILLS=============//
@@ -87,7 +95,7 @@ export class PorfolioService {
   editarSkill(id:BigInt, skill:any, idSkill:BigInt):Observable<any>{
     return this.http.put(this.url + id + '/softskill/' + idSkill, skill);
   }
-  eliminarSkill(id:BigInt, skill:any, idSkill:BigInt):Observable<any>{
-    return this.http.delete(this.url + id + '/softskill/' + idSkill, skill);
+  eliminarSkill(id:BigInt, idSkill:BigInt):Observable<any>{
+    return this.http.delete(this.url + id + '/softskill/' + idSkill);
   }
 }

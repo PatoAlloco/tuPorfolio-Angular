@@ -4,14 +4,15 @@ import { PorfolioService } from 'src/app/services/porfolio.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';    //, NgForm
 
 @Component({
-  selector: 'app-editar-educacion',
-  templateUrl: './editar-educacion.component.html',
-  styleUrls: ['./editar-educacion.component.css']
+  selector: 'app-editar-foto-perfil',
+  templateUrl: './editar-foto-perfil.component.html',
+  styleUrls: ['./editar-foto-perfil.component.css']
 })
-export class EditarEducacionComponent implements OnInit {
+export class EditarFotoPerfilComponent implements OnInit {
   @Input() usuario:any;
-  idEducacion:any;
-  educacion:any;
+  idUsuario:any;
+  perfil:any;
+  foto:any = null;
   private sub: any;
 
   form:FormGroup;
@@ -22,10 +23,7 @@ export class EditarEducacionComponent implements OnInit {
               private activatedRoute: ActivatedRoute) { 
 
       this.form = this.formBuilder.group({
-          instituto : ['', Validators.required],
-          titulo    : ['', Validators.required],
-          inicio    : ['', Validators.required],
-          fin       : ['']
+          file   : ['', Validators.required],
       });
   }
 
@@ -33,23 +31,12 @@ export class EditarEducacionComponent implements OnInit {
   //esto se puede usar para el editar
   ngOnInit(): void {
     this.sub = this.activatedRoute.params.subscribe(params => {
-      this.idEducacion = +params['id'];
+      this.idUsuario = +params['id'];
     });
 
     this.porfolioService.obtenerUsuarioLogueado().subscribe( data =>{
       this.porfolioService.obtenerUsuarioPorId(data.id).subscribe(data => {
         this.usuario = data;
-
-        this.usuario.estudios.forEach((est: { id: any; }) => {
-          if (est.id == this.idEducacion) {
-            this.educacion = est;
-            this.form.controls['instituto'].setValue(this.educacion.instituto);
-            this.form.controls['titulo'].setValue(this.educacion.titulo);
-            this.form.controls['inicio'].setValue(this.educacion.inicio);
-            this.form.controls['fin'].setValue(this.educacion.fin);
-          }
-        });
-
       })
     })
   }
@@ -58,17 +45,32 @@ export class EditarEducacionComponent implements OnInit {
     this.sub.unsubscribe();
   }
 
-  editarEducacion(event:Event){
-    event.preventDefault;
+  seleccionFoto(event:any){
+    this.foto = null;
 
-    this.form.value.id = this.idEducacion;
-    this.porfolioService.editarEducacion(this.usuario.id, this.form.value, this.idEducacion).subscribe( data =>{
-      console.log(this.form.value);
-      this.ruta.navigate(['/home']);
-    })
+    const file:File = event.target.files[0];
+
+    const fileReader = new FileReader();
+    fileReader.addEventListener('load', () => {
+      this.foto = {
+        "file": file
+      }  
+    });
+   fileReader.readAsDataURL(file);  
   }
 
-  
+  editarFotoPerfil(){
+    let fd = new FormData();
+    fd.append("archivo", this.foto.file);
+
+    this.porfolioService.cargarFotoPerfil(this.idUsuario, fd).subscribe( data =>{
+      console.log(this.form.value);
+      this.ruta.navigate(['/home']);
+    },
+    error => {
+      console.log(error);
+    })
+  }
 
   volverHome(){
     this.ruta.navigate(['/home']);

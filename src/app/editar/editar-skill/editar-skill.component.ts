@@ -38,11 +38,11 @@ export class EditarSkillComponent implements OnInit {
       this.porfolioService.obtenerUsuarioPorId(data.id).subscribe(data => {
         this.usuario = data;
 
-        this.usuario.skills.forEach((sky: { id: any; }) => {
-          if (sky.id == this.idSkill) {
-            this.skill = sky;
+        this.usuario.skills.forEach((skill: { id: any; }) => {
+          if (skill.id == this.idSkill) {
+            this.skill = skill;
             this.form.controls['nombre'].setValue(this.skill.nombre);
-            this.form.controls['titulo'].setValue(this.skill.porcentaje);
+            this.form.controls['porcentaje'].setValue(this.skill.porcentaje);
           }
         });
 
@@ -54,18 +54,28 @@ export class EditarSkillComponent implements OnInit {
     this.sub.unsubscribe();
   }
 
+  get Nombre(){
+    return this.form.get('nombre');
+  }
+  get Porcentaje(){
+    return this.form.get('porcentaje');
+  }
+
+
+
   editarSkill(event:Event){
+    console.log(this.form)
     event.preventDefault;
 
+    console.log(event);
+    
     this.form.value.id = this.idSkill;
     this.porfolioService.editarSkill(this.usuario.id, this.form.value, this.idSkill).subscribe( data =>{
-      console.log(this.form.value);
       this.ruta.navigate(['/home']);
     })
   }
 
   volverHome(){
-    this.ruta.navigate(['/home']);
-  
+    this.ruta.navigate(['/home']);  
   }
 }

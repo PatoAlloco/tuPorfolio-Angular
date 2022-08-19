@@ -28,6 +28,8 @@ import { AgregarSkillComponent } from './agregar/agregar-skill/agregar-skill.com
 import { EditarSkillComponent } from './editar/editar-skill/editar-skill.component';
 import { AgregarTrabajoComponent } from './agregar/agregar-trabajo/agregar-trabajo.component';
 import { EditarTrabajoComponent } from './editar/editar-trabajo/editar-trabajo.component';
+import { EditarPerfilComponent } from './editar/editar-perfil/editar-perfil.component';
+import { EditarFotoPerfilComponent } from './editar/editar-foto-perfil/editar-foto-perfil.component';
 
 
 @NgModule({
@@ -51,6 +53,8 @@ import { EditarTrabajoComponent } from './editar/editar-trabajo/editar-trabajo.c
     EditarSkillComponent,
     AgregarTrabajoComponent,
     EditarTrabajoComponent,
+    EditarPerfilComponent,
+    EditarFotoPerfilComponent,
   ],
   imports: [
     BrowserModule,
