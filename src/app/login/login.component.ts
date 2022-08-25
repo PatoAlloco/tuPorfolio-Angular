@@ -45,7 +45,6 @@ export class LoginComponent implements OnInit {
 
   onEnviar(event: Event) {
     this.mostrarSpinner = true;
-    this.mostrarSpinner = false;
     event.preventDefault;
     this.authenticactionService.IniciarSesion(this.form.value).subscribe({  
       next: (data) => {

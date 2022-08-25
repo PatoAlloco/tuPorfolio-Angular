@@ -2,7 +2,7 @@
 
     <header class="">
         <nav>
-            <h1>tuPorfolio</h1>
+            <h1>tuPortfolio</h1>
             <img src="../../assets/images/arg-programa.png" alt="logo Argentina Programa">
         </nav>
     </header>
@@ -10,7 +10,7 @@
     <div class="">
         <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
             <div class="form-header">
-                <h2>tuPorfolio</h2>
+                <h2>tuPortfolio</h2>
                 <p class="rounded">Login</p>
             </div>
 
@@ -31,7 +31,7 @@
             </div>
             <p *ngIf="noLogin" class="text-danger"> Usuario y/o contraseña incorrectos</p>
 
-            <button [disabled]="!Validacion" type="submit" class="btn">Ingresar</button>
+            <button [disabled]="!Validacion || mostrarSpinner" type="submit" class="btn">Ingresar</button>
             <br>
             <div class="row justify-content-center align-items-center minh-100">
                 <div *ngIf="mostrarSpinner" class="spinner-grow text-muted"></div>
