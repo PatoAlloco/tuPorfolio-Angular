@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PorfolioService } from 'src/app/services/porfolio.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; //, NgForm
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/autentication.service';
 import Swal from 'sweetalert2';
 
@@ -33,7 +33,6 @@ export class AgregarEducacionComponent implements OnInit {
     this.loading = true;
   }
 
-  //esto se puede usar para el editar
   ngOnInit(): void {
     this.porfolioService.obtenerUsuarioLogueado().subscribe({
       next: (data) => {

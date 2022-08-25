@@ -7,15 +7,13 @@
                 <label for="exampleInputSkill">Nombre de tu habilidad</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre"
                     [ngClass]="{'is-invalid' : Nombre?.errors && Nombre?.touched, 'is-valid' : !Nombre?.errors && Nombre?.touched}">
-                <span *ngIf="Nombre?.errors && Nombre?.touched" class="text-danger">Ingrese el nombre de tu
-                    habilidad</span>
+                <span *ngIf="Nombre?.errors && Nombre?.touched" class="text-danger">Ingrese el nombre de tu habilidad</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputPorcentaje">Porcentaje</label>
                 <input type="number" class="form-control" id="porcentaje" name="porcentaje" formControlName="porcentaje"
                     min="10" max="100"
-                    [ngClass]="{'is-invalid' : Porcentaje?.errors && Porcentaje?.touched, 'is-valid' : !Porcentaje?.errors && Porcentaje?.touched}"
-                    class="form-control">
+                    [ngClass]="{'is-invalid' : Porcentaje?.errors && Porcentaje?.touched, 'is-valid' : !Porcentaje?.errors && Porcentaje?.touched}" class="form-control">
                 <div *ngIf="Porcentaje?.errors && Porcentaje?.touched">
                     <p *ngIf="Porcentaje?.hasError('required')" class="text-danger"> La porcentaje es requerido</p>
                     <p *ngIf="Porcentaje?.hasError('min')" class="text-danger">El valor mínimo es 10</p>

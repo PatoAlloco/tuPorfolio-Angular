@@ -7,8 +7,7 @@
                 <label for="exampleInputSkill">Habilidad</label>
                 <input type="text" class="form-control" id="nombre" name="nombre" formControlName="nombre"
                     [ngClass]="{'is-invalid' : Nombre?.errors && Nombre?.touched, 'is-valid' : !Nombre?.errors && Nombre?.touched}">
-                <span *ngIf="Nombre?.errors && Nombre?.touched" class="text-danger">Ingrese el nombre de tu
-                    habilidad</span>
+                <span *ngIf="Nombre?.errors && Nombre?.touched" class="text-danger">Ingrese el nombre de tu habilidad</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputPorcentaje">Porcentaje</label>
@@ -18,13 +17,11 @@
                 <div *ngIf="Porcentaje?.errors && Porcentaje?.touched">
                     <p *ngIf="Porcentaje?.hasError('required')" class="text-danger"> El porcentaje es Requerido</p>
                     <p *ngIf="Porcentaje?.hasError('max')" class="text-danger"> El porcentaje no puede superar 100</p>
-                    <p *ngIf="Porcentaje?.hasError('min')" class="text-danger"> El porcentaje no puede ser menos de 10
-                    </p>
+                    <p *ngIf="Porcentaje?.hasError('min')" class="text-danger"> El porcentaje no puede ser menos de 10</p>
                 </div>
             </div>
             <button type="button" (click)="volverHome()" class="btn btn-danger">Cancelar</button>
-            <button type="submit" [disabled]="!Validacion|| mostrarSpinner" class="btn btn-success">Guardar
-                cambios</button>
+            <button type="submit" [disabled]="!Validacion|| mostrarSpinner" class="btn btn-success">Guardar cambios</button>
             <br>
             <br>
             <div class="row justify-content-center align-items-center minh-100">

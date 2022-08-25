@@ -37,7 +37,6 @@ export class EditarEducacionComponent implements OnInit {
     this.loading = true;
   }
 
-  //esto se puede usar para el editar
   ngOnInit(): void {
     this.sub = this.activatedRoute.params.subscribe((params) => {
       this.idEducacion = +params['id'];

@@ -7,8 +7,7 @@
                 <label for="exampleInputTrabajo">Empresa</label>
                 <input type="text" class="form-control" id="empresa" name="empresa" formControlName="empresa"
                     [ngClass]="{'is-invalid' : Empresa?.errors && Empresa?.touched, 'is-valid' : !Empresa?.errors && Empresa?.touched}">
-                <span *ngIf="Empresa?.errors && Empresa?.touched" class="text-danger">Ingrese el nombre de la
-                    Empresa</span>
+                <span *ngIf="Empresa?.errors && Empresa?.touched" class="text-danger">Ingrese el nombre de la Empresa</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputPuesto">Puesto</label>
@@ -20,20 +19,15 @@
                 <label for="exampleInputInicio">Inicio</label>
                 <input type="date" class="form-control" id="inicio" name="inicio" formControlName="inicio"
                     [ngClass]="{'is-invalid' : Inicio?.errors && Inicio?.touched || !validarFechaActual(form.value.inicio), 'is-valid' : !Inicio?.errors && Inicio?.touched}">
-                <span *ngIf="Inicio?.errors && Inicio?.touched" class="text-danger">Ingrese la fecha en que inicio a
-                    trabajar</span>
-                <span *ngIf="!validarFechaActual(form.value.inicio)" class="text-danger">La fecha ingresada no puede
-                    superar a la actual</span>
+                <span *ngIf="Inicio?.errors && Inicio?.touched" class="text-danger">Ingrese la fecha en que inicio a trabajar</span>
+                <span *ngIf="!validarFechaActual(form.value.inicio)" class="text-danger">La fecha ingresada no puede superar a la actual</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputFin">Fin</label>
                 <input type="date" class="form-control" id="fin" name="fin" formControlName="fin"
                     [ngClass]="{'is-invalid' : !validarFechaActual(form.value.fin) || !validarFechas()}">
-                <span *ngIf="!validarFechaActual(form.value.fin)" class="text-danger">La fecha ingresada no puede
-                    superar a la actual</span>
-                <span *ngIf="!validarFechas()" class="text-danger">La fecha actual no puede ser menor a la de
-                    inicio</span>
-
+                <span *ngIf="!validarFechaActual(form.value.fin)" class="text-danger">La fecha ingresada no puede superar a la actual</span>
+                <span *ngIf="!validarFechas()" class="text-danger">La fecha actual no puede ser menor a la de inicio</span>
             </div>
 
             <button type="button" (click)="volverHome()" class="btn btn-danger">Cancelar</button>

@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { AuthModel } from '../models/usuario.model';
+import { AuthModel } from '../models/usuario.model'; 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   url = "http://localhost:8080/login";
-  currentUserSubject: BehaviorSubject<AuthModel>;
+  currentUserSubject: BehaviorSubject<AuthModel>; //observable con el token que viene de usuario.models
 
   constructor(private http:HttpClient) {
-    this.currentUserSubject = new BehaviorSubject<AuthModel>(JSON.parse(sessionStorage.getItem('currentUser') || '{}'));    
+    this.currentUserSubject = new BehaviorSubject<AuthModel>(JSON.parse(sessionStorage.getItem('currentUser') || '{}')); //carga el token y sino hay queda vacio    
   }
 
   IniciarSesion(credenciales:any):Observable<any>{

@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SoftskillsComponent } from './softskills.component';
 
 describe('SoftskillsComponent', () => {

@@ -40,7 +40,6 @@ export class EditarPerfilComponent implements OnInit {
     this.loading = true;
   }
 
-  //esto se puede usar para el editar
   ngOnInit(): void {
     this.sub = this.activatedRoute.params.subscribe((params) => {
       this.idUsuario = +params['id'];
@@ -75,9 +74,7 @@ export class EditarPerfilComponent implements OnInit {
       this.form.controls['mail'].setValue(this.usuario.mail);
       this.form.controls['ocupacion'].setValue(this.usuario.ocupacion);
       this.form.controls['sobreMi'].setValue(this.usuario.sobreMi);
-      this.form.controls['nacimiento'].setValue(
-        new Date(this.usuario.nacimiento)
-      );
+      this.form.controls['nacimiento'].setValue(new Date(this.usuario.nacimiento));
       this.form.controls['ciudad'].setValue(this.usuario.ciudad);
       this.form.controls['provincia'].setValue(this.usuario.provincia);
     }, 50);

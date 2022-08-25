@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PorfolioService } from 'src/app/services/porfolio.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; //, NgForm
+import { FormBuilder, FormGroup, Validators } from '@angular/forms'; 
 import { AuthenticationService } from 'src/app/services/autentication.service';
 import Swal from 'sweetalert2';
 
@@ -27,7 +27,7 @@ export class EditarProyectoComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private authenticationService: AuthenticationService
   ) {
-    this.form = this.formBuilder.group({
+    this.form = this.formBuilder.group({                     
       titulo: ['', Validators.required],
       descripcion: ['', Validators.required],
       linkRepositorio: [''],
@@ -37,29 +37,24 @@ export class EditarProyectoComponent implements OnInit {
     this.loading = true;
   }
 
-  //esto se puede usar para el editar
   ngOnInit(): void {
-    this.sub = this.activatedRoute.params.subscribe((params) => {
+    this.sub = this.activatedRoute.params.subscribe((params) => {     //recupero el id del proyecto
       this.idProyecto = +params['id'];
     });
 
     this.porfolioService.obtenerUsuarioLogueado().subscribe({
-      next: (data) => {
+      next: (data) => {                                                 //next para manejar el callback por falta de token
         this.porfolioService.obtenerUsuarioPorId(data.id).subscribe((data) => {
           this.usuario = data;
           this.loading = false;
 
-          setTimeout(() => {
-            this.usuario.proyectos.forEach((pro: { id: any }) => {
+          setTimeout(() => {                                               //uso el timeout para darle tiempo a que cargue todos los valores
+            this.usuario.proyectos.forEach((pro: { id: any }) => {     //cuando coincide el id de la lista se lo seteo a proyecto
               if (pro.id == this.idProyecto) {
                 this.proyecto = pro;
                 this.form.controls['titulo'].setValue(this.proyecto.titulo);
-                this.form.controls['descripcion'].setValue(
-                  this.proyecto.descripcion
-                );
-                this.form.controls['linkRepositorio'].setValue(
-                  this.proyecto.linkRepositorio
-                );
+                this.form.controls['descripcion'].setValue(this.proyecto.descripcion);
+                this.form.controls['linkRepositorio'].setValue(this.proyecto.linkRepositorio);
                 this.form.controls['inicio'].setValue(this.proyecto.inicio);
                 this.form.controls['fin'].setValue(this.proyecto.fin);
               }
@@ -67,9 +62,9 @@ export class EditarProyectoComponent implements OnInit {
           }, 50);
         });
       },
-      error: (err) => {
+      error: (err) => {                             
         if (err.status == 401) {
-          this.authenticationService.Logout(); //
+          this.authenticationService.Logout();    //salgo si no hay token
           this.ruta.navigate(['/login']);
         }
         this.loading = false;

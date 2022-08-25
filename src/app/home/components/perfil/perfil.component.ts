@@ -47,6 +47,7 @@ export class PerfilComponent implements OnInit {
     this.ruta.navigate(['/editar-foto-portada', idPerfil]);
   }
 
+  //para mostrar la edad pero al final no me gusto como quedo
   edad(){
     if (this.usuario.nacimiento) {      
     const today: Date = new Date();

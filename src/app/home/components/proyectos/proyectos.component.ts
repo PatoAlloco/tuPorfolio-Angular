@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./proyectos.component.css'],
 })
 export class ProyectosComponent implements OnInit {
-  @Input() usuario: any;
+  @Input() usuario: any; //me traigo el usuario registrado desde protfolio.
 
   constructor(private ruta: Router, private porfolioService: PorfolioService) {}
 
@@ -26,7 +26,7 @@ export class ProyectosComponent implements OnInit {
     this.ruta.navigate(['/editar-proyecto', idProyecto]);
   }
   eliminarProyecto(idProyecto: BigInt) {
-    Swal.fire({
+    Swal.fire({                                             //uso el sweetalert
       title: 'Atención',
       text: '¿Seguro desea eliminar este proyecto?',
       icon: 'warning',
@@ -38,15 +38,14 @@ export class ProyectosComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.porfolioService
-          .eliminarProyecto(this.usuario.id, idProyecto)
+          .eliminarProyecto(this.usuario.id, idProyecto)            //intento eliminar y espero confirmación
           .subscribe({
             next: (data) => {
-              console.log(data);
               this.ruta.routeReuseStrategy.shouldReuseRoute = () => false;
               this.ruta.onSameUrlNavigation = 'reload';
               this.ruta.navigate([this.ruta.url]);
             },
-            error: (err) => {
+            error: (err) => {                                     //error por si no se puede eliminar
               Swal.fire({
                 icon: 'error',
                 title: 'Error',

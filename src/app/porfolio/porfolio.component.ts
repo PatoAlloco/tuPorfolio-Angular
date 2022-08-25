@@ -29,7 +29,7 @@ export class PorfolioComponent implements OnInit {
       },
       error: (err) => {
         if (err.status == 401) {
-          this.authenticationService.Logout();
+          this.authenticationService.Logout();     //seguridad para redirigir al login sin token
           this.ruta.navigate(['/login']);
         }
         this.loading = false;

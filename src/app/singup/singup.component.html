@@ -48,27 +48,19 @@
                 class="form-control">
             <div *ngIf="Password?.errors && Password?.touched">
                 <p *ngIf="Password?.hasError('required')" class="text-danger"> La contraseña es requerida</p>
-                <p *ngIf="Password?.hasError('minlength')" class="text-danger"> La contraseña debe tener mínimo 6
-                    caracteres</p>
+                <p *ngIf="Password?.hasError('minlength')" class="text-danger"> La contraseña debe tener mínimo 6 caracteres</p>
             </div>
 
             <label>Repetir contraseña</label>
             <input id="inputPasswordRepetida" type="password" formControlName="passwordRepetida"
                 [ngClass]="{'is-invalid' : !validarPassword(form.value.passwordRepetida) && PasswordRepetida?.touched, 'is-valid' : !PasswordRepetida?.errors && PasswordRepetida?.touched}"
                 class="form-control">
-            <span *ngIf="!validarPassword(form.value.passwordRepetida) && PasswordRepetida?.touched"
-                class="text-danger">No coincide el password</span>
+            <span *ngIf="!validarPassword(form.value.passwordRepetida) && PasswordRepetida?.touched" class="text-danger">No coincide el password</span>
             <div *ngIf="PasswordRepetida?.errors && PasswordRepetida?.touched">
-                <p *ngIf="PasswordRepetida?.hasError('required')" class="text-danger">
-                    La contraseña es requerida
-                </p>
-                <p *ngIf="PasswordRepetida?.hasError('minlength')" class="text-danger">
-                    La contraseña debe tener mínimo 6 caracteres
-                </p>
+                <p *ngIf="PasswordRepetida?.hasError('required')" class="text-danger">La contraseña es requerida</p>
+                <p *ngIf="PasswordRepetida?.hasError('minlength')" class="text-danger">La contraseña debe tener mínimo 6 caracteres</p>
             </div>
-            <button [disabled]="!Validacion" type="submit" class="btn">
-                Crear Cuenta
-            </button>
+            <button [disabled]="!Validacion" type="submit" class="btn">Crear Cuenta</button>
             <br>
             <div class="row justify-content-center align-items-center minh-100">
                 <div *ngIf="mostrarSpinner" class="spinner-grow text-muted"></div>

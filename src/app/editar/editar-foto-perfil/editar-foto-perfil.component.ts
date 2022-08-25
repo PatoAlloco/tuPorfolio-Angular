@@ -33,10 +33,9 @@ export class EditarFotoPerfilComponent implements OnInit {
     this.loading = true;
   }
 
-  //esto se puede usar para el editar
   ngOnInit(): void {
     this.sub = this.activatedRoute.params.subscribe((params) => {
-      this.idUsuario = +params['id'];
+      this.idUsuario = +params['id'];                                 
     });
 
     this.porfolioService.obtenerUsuarioLogueado().subscribe({

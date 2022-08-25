@@ -36,10 +36,8 @@
                 <input type="date" class="form-control" id="nacimiento" name="nacimiento" formControlName="nacimiento"
                     [ngClass]="{'is-invalid' : Nacimiento?.errors && Nacimiento?.touched, 'is-valid' : !Nacimiento?.errors && Nacimiento?.touched}"
                     [value]="form.value.nacimiento | date:'yyyy-MM-dd'">
-                <span *ngIf="Nacimiento?.errors && Nacimiento?.touched" class="text-danger">Ingrese su fecha de
-                    nacimiento</span>
-                <span *ngIf="!validarFechaActual(form.value.nacimiento)" class="text-danger">La fecha ingresada no puede
-                    superar a la actual</span>
+                <span *ngIf="Nacimiento?.errors && Nacimiento?.touched" class="text-danger">Ingrese su fecha de nacimiento</span>
+                <span *ngIf="!validarFechaActual(form.value.nacimiento)" class="text-danger">La fecha ingresada no puede superar a la actual</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputCiudad">Ciudad</label>
@@ -55,8 +53,7 @@
             </div>
 
             <button type="button" (click)="volverHome()" class="btn btn-danger">Cancelar</button>
-            <button type="submit" [disabled]="!Validacion|| mostrarSpinner" class="btn btn-success">Guardar
-                cambios</button>
+            <button type="submit" [disabled]="!Validacion|| mostrarSpinner" class="btn btn-success">Guardar cambios</button>
             <br>
             <br>
             <div class="row justify-content-center align-items-center minh-100">

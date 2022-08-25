@@ -7,46 +7,37 @@
                 <label for="exampleInputTitulo">Título</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" formControlName="titulo"
                     [ngClass]="{'is-invalid' : Titulo?.errors && Titulo?.touched, 'is-valid' : !Titulo?.errors && Titulo?.touched}">
-                <span *ngIf="Titulo?.errors && Titulo?.touched" class="text-danger">Ingrese el Título de tu
-                    proyecto</span>
+                <span *ngIf="Titulo?.errors && Titulo?.touched" class="text-danger">Ingrese el título de tu proyecto</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputDescripcion">Descripción</label>
-                <input type="text" class="form-control" id="descripcion" name="descripcion"
-                    formControlName="descripcion"
+                <input type="text" class="form-control" id="descripcion" name="descripcion" formControlName="descripcion"
                     [ngClass]="{'is-invalid' : Descripcion?.errors && Descripcion?.touched, 'is-valid' : !Descripcion?.errors && Descripcion?.touched}">
-                <span *ngIf="Descripcion?.errors && Descripcion?.touched" class="text-danger">Ingrese la descripción de
-                    tu proyecto</span>
+                <span *ngIf="Descripcion?.errors && Descripcion?.touched" class="text-danger">Ingrese la descripción de tu proyecto</span>
             </div>
             <div class="form-group">
-                <label for="exampleInputLink">Link a Repositorio</label>
-                <input type="text" class="form-control" id="linkRepositorio" name="linkRepositorio"
-                    formControlName="linkRepositorio">
+                <label for="exampleInputLink">Link a repositorio</label>
+                <input type="text" class="form-control" id="linkRepositorio" name="linkRepositorio" formControlName="linkRepositorio">
             </div>
             <div class="form-group">
                 <label for="exampleInputInicio">Inicio</label>
                 <input type="date" class="form-control" id="inicio" name="inicio" formControlName="inicio"
                     [ngClass]="{'is-invalid' : Inicio?.errors && Inicio?.touched || !validarFechaActual(form.value.inicio), 'is-valid' : !Inicio?.errors && Inicio?.touched}"
-                    [value]="form.value.inicio | date:'yyyy-MM-dd'">
-                <span *ngIf="Inicio?.errors && Inicio?.touched" class="text-danger">Ingrese la fecha en que inicio a
-                    trabajar</span>
-                <span *ngIf="!validarFechaActual(form.value.inicio)" class="text-danger">La fecha ingresada no puede
-                    superar a la actual.</span>
+                    [value]="form.value.inicio | date:'yyyy-MM-dd'"> <!--aca muestro la fecha en el form-->
+                <span *ngIf="Inicio?.errors && Inicio?.touched" class="text-danger">Ingrese la fecha en que inicio a trabajar</span>
+                <span *ngIf="!validarFechaActual(form.value.inicio)" class="text-danger">La fecha ingresada no puede superar a la actual.</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputFin">Fin</label>
                 <input type="date" class="form-control" id="fin" name="fin" formControlName="fin"
                     [ngClass]="{'is-invalid' : !validarFechaActual(form.value.fin) || !validarFechas()}"
                     [value]="form.value.fin | date:'yyyy-MM-dd'">
-                <span *ngIf="!validarFechaActual(form.value.fin)" class="text-danger">La fecha ingresada no puede
-                    superar a la actual.</span>
-                <span *ngIf="!validarFechas()" class="text-danger"> La fecha actual no puede ser menor a la de
-                    inicio</span>
+                <span *ngIf="!validarFechaActual(form.value.fin)" class="text-danger">La fecha ingresada no puede superar a la actual.</span>
+                <span *ngIf="!validarFechas()" class="text-danger"> La fecha actual no puede ser menor a la de inicio</span>
             </div>
 
             <button type="button" (click)="volverHome()" class="btn btn-danger">Cancelar</button>
-            <button type="submit" [disabled]="!Validacion|| mostrarSpinner" class="btn btn-success">Guardar
-                cambios</button>
+            <button type="submit" [disabled]="!Validacion|| mostrarSpinner" class="btn btn-success">Guardar cambios</button>
             <br>
             <br>
             <div class="row justify-content-center align-items-center minh-100">

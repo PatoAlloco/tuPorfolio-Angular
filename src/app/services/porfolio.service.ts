@@ -26,7 +26,7 @@ export class PorfolioService {
     return this.http.get(this.url + id);
   }
 
-  obtenerUsuarioLogueado():Observable<any>{
+  obtenerUsuarioLogueado():Observable<any>{             //me traigo el usuario registrado
     return this.http.get(this.url + 'actual');
   }
 

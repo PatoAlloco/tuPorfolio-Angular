@@ -13,7 +13,7 @@
                 <label for="exampleInputTitulo">Título</label>
                 <input type="text" class="form-control" id="titulo" name="titulo" formControlName="titulo"
                 [ngClass]="{'is-invalid' : Titulo?.errors && Titulo?.touched, 'is-valid' : !Titulo?.errors && Titulo?.touched}">
-                <span *ngIf="Titulo?.errors && Titulo?.touched" class="text-danger">Ingrese el Título</span>
+                <span *ngIf="Titulo?.errors && Titulo?.touched" class="text-danger">Ingrese el título</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputInicio">Inicio</label>
