@@ -30,7 +30,9 @@ import { AgregarTrabajoComponent } from './agregar/agregar-trabajo/agregar-traba
 import { EditarTrabajoComponent } from './editar/editar-trabajo/editar-trabajo.component';
 import { EditarPerfilComponent } from './editar/editar-perfil/editar-perfil.component';
 import { EditarFotoPerfilComponent } from './editar/editar-foto-perfil/editar-foto-perfil.component';
-
+import { EditarFotoPortadaComponent } from './editar/editar-foto-portada/editar-foto-portada.component';
+import { LoadingComponent } from './loading/loading.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { EditarFotoPerfilComponent } from './editar/editar-foto-perfil/editar-fo
     EditarTrabajoComponent,
     EditarPerfilComponent,
     EditarFotoPerfilComponent,
+    EditarFotoPortadaComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,11 +67,13 @@ import { EditarFotoPerfilComponent } from './editar/editar-foto-perfil/editar-fo
     ReactiveFormsModule,
     ModalModule,
     NgbModule,
-    FormsModule
+    FormsModule,
+    SweetAlert2Module.forRoot(),
   ],
-  providers: [PorfolioService,
-    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+  providers: [
+    PorfolioService,
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { AutenticationService } from './autentication.service';
+import { AuthenticationService } from './autentication.service';
 import { AuthModel } from '../models/usuario.model';
 
 
@@ -10,15 +10,15 @@ import { AuthModel } from '../models/usuario.model';
 })
 export class InterceptorService implements HttpInterceptor {
 
-  constructor(private autenticationService:AutenticationService) { 
+  constructor(private authenticationService:AuthenticationService) { 
 
   }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    let auth:AuthModel = this.autenticationService.UsuarioAutenticado;
+    let auth:AuthModel = this.authenticationService.UsuarioAutenticado;
 
     if (auth && auth.token){
-      const  clonedRequest = req.clone({
+      const clonedRequest = req.clone({
         headers: new HttpHeaders({
               Authorization: auth.token,
             })

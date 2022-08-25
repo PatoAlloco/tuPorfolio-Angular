@@ -1,0 +1,22 @@
+<body>
+    <app-loading *ngIf="loading"></app-loading>
+    <div class="container" *ngIf="!loading">
+        <h3>Editar Foto de Portada</h3>
+        <form class="m-5" [formGroup]="form" (ngSubmit)="editarFotoPortada()">
+            <div class="form-group">
+                <label for="exampleInputNombre">Selecciona tu foto de portada</label>
+                <input type="file" name="file" class="form-control" (change)="seleccionFoto($event)"
+                    accept="image/x-png,image/jpeg" required>
+            </div>
+
+            <button type="button" (click)="volverHome()" class="btn btn-danger">Cancelar</button>
+            <button type="submit" class="btn btn-success"
+                [disabled]="this.foto == null || mostrarSpinner">Agregar</button>
+            <br>
+            <br>
+            <div class="row justify-content-center align-items-center minh-100">
+                <div *ngIf="mostrarSpinner" class="spinner-grow text-muted"></div>
+            </div>
+        </form>
+    </div>
+</body>

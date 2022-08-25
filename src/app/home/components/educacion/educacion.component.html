@@ -1,7 +1,7 @@
 <main>
     <section class="experiencia-laboral">
         <div class="experiencia-titulo">
-            <h5>Educacion</h5>
+            <h5>Educación</h5>
             <i (click)="irAPantallaAgregar()" class="button-icon-add fa-solid fa-circle-plus"></i>
         </div>
         <ul>
@@ -11,7 +11,7 @@
                     <div>
                         <span><strong>{{estudio.instituto.toUpperCase()}}</strong></span>
                         <p>{{estudio.titulo}}</p>
-                        <p>{{estudio.inicio | date:'y'}} - {{estudio.fin | date:'y'}}</p>
+                        <p>{{estudio.inicio | date:'y'}} - {{estudio.fin ? (estudio.fin | date:'y') : "Actualidad"}}</p>
                     </div>
                 </div>
                 <div>

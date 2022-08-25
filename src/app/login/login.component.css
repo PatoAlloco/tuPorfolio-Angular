@@ -100,24 +100,24 @@ form {
 
 form label {
     margin-bottom: .3rem;
+    margin-top: 2vw;
 }
 
 form input {
     border-radius: 100vh;
-    margin-bottom: 1rem;
     padding: .3rem 1rem;
     border: 2px solid #F2F2F2;
 }
 
 form input:focus {
     outline: none;
-    border: 2px solid #8a6df1ff;
 }
 
 form button{
     background-color: rgb(44, 44, 253);
     color: white;
     padding: .8rem 0;
+    margin-top: 2vw;
     border-radius: .3rem;
     font-size: 1rem;
     font-weight: 400;

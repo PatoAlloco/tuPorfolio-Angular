@@ -1,13 +1,13 @@
 <body>
 
-    <header class="container">
+    <header class="">
         <nav>
             <h1>tuPorfolio</h1>
             <img src="../../assets/images/arg-programa.png" alt="logo Argentina Programa">
         </nav>
     </header>
 
-    <div class="container">
+    <div class="">
         <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
             <div class="form-header">
                 <h2>tuPorfolio</h2>
@@ -29,12 +29,17 @@
                 <p *ngIf="Password?.hasError('required')" class="text-danger"> La contraseña es Requerida</p>
                 <p *ngIf="Password?.hasError('minlength')" class="text-danger"> La contraseña debe tener minimo 6 caracteres</p>
             </div>
-            <button type="submit">Ingresar</button>
+            <p *ngIf="noLogin" class="text-danger"> Usuario y/o contraseña incorrectos</p>
 
+            <button [disabled]="!Validacion" type="submit" class="btn">Ingresar</button>
+            <br>
+            <div class="row justify-content-center align-items-center minh-100">
+                <div *ngIf="mostrarSpinner" class="spinner-grow text-muted"></div>
+            </div>
         </form>
 
         <div class="ingresarA">
-            <a href="signup.html">¿No tienes una cuenta? Regístrate aquí</a>
+            <a (click)="irARegistro()">¿No tienes una cuenta? Regístrate aquí</a>
         </div>
 
     </div>

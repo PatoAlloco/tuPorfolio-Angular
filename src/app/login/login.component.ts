@@ -1,41 +1,63 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AutenticationService } from '../services/autentication.service';
+import { AuthenticationService } from '../services/autentication.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  form:FormGroup;
-  constructor(private formBuilder:FormBuilder, 
-              private autenticactionService:AutenticationService, 
-              private ruta:Router) {
-
+  form: FormGroup;
+  mostrarSpinner: boolean;
+  noLogin: boolean;
+  constructor(
+    private formBuilder: FormBuilder,
+    private authenticactionService: AuthenticationService,
+    private ruta: Router
+  ) {
+    this.mostrarSpinner = false;
+    this.noLogin = false;
     this.form = this.formBuilder.group({
-      mail:['',[Validators.required, Validators.email]],
-      password:['', [Validators.required, Validators.minLength(6)]]
-    })
-
+      mail: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {}
+
+  get Validacion() {
+    return this.form.status == 'VALID';
   }
 
-  get Email(){
+  get Email() {
     return this.form.get('mail');
   }
-  get Password(){
+  get Password() {
     return this.form.get('password');
   }
 
-  onEnviar(event:Event){
+  irARegistro() {
+    this.ruta.navigate(['/registro']);
+  }
+
+  onEnviar(event: Event) {
+    this.mostrarSpinner = true;
+    this.mostrarSpinner = false;
     event.preventDefault;
-    this.autenticactionService.IniciarSesion(this.form.value).subscribe(data =>{
-      
-      this.ruta.navigate(['/home']);
-    })
+    this.authenticactionService.IniciarSesion(this.form.value).subscribe({
+      next: (data) => {
+        this.mostrarSpinner = false;
+        this.ruta.navigate(['/home']);
+      },
+      error: (err) => {
+        this.mostrarSpinner = false;
+
+        if (err.status == 401) {
+          this.noLogin = true;
+        }
+      },
+    });
   }
 }

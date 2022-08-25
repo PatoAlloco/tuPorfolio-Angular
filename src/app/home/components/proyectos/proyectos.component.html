@@ -11,8 +11,8 @@
                     <div>
                         <span><strong>{{proyecto.titulo.toUpperCase()}}</strong></span>
                         <p>{{proyecto.descripcion}}</p>
-                        <p>{{proyecto.inicio | date: 'y'}} - {{proyecto.fin | date: 'y'}}</p>
-                        <a [href]="proyecto.linkRepositorio"><i class="fa-brands fa-github"></i></a>
+                        <p>{{proyecto.inicio | date: 'y'}} -  {{proyecto.fin ? (proyecto.fin | date:'y') : "Actualidad"}}</p>
+                        <a [href]="proyecto.linkRepositorio" target="_blank"><i class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
                 <div>

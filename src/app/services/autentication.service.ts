@@ -7,7 +7,7 @@ import { AuthModel } from '../models/usuario.model';
 @Injectable({
   providedIn: 'root'
 })
-export class AutenticationService {
+export class AuthenticationService {
   url = "http://localhost:8080/login";
   currentUserSubject: BehaviorSubject<AuthModel>;
 
@@ -33,6 +33,11 @@ export class AutenticationService {
 
   get UsuarioAutenticado(){
     return this.currentUserSubject.value;
+  }
+  
+  Logout(){
+    sessionStorage.removeItem('currentUser')
+    this.currentUserSubject = new BehaviorSubject<AuthModel>(JSON.parse(sessionStorage.getItem('currentUser') || '{}'));    
   }
 
 }

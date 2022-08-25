@@ -20,14 +20,17 @@ header button{
     margin-bottom: 0.5vw;
 }
 .facebook:hover{
-    color: rgb(15, 64, 223);
+    color: #3b5998;
 }
 .instagram:hover{
     color: rgb(224, 21, 123);
 }
 .twitter:hover{
-    color: rgb(11, 112, 206);
+    color: #00acee;
 }
 .github:hover{
-    color: rgb(4, 8, 20);
+    color:  #171515;
+}
+.linkedin:hover{
+    color: #0e76a8
 }

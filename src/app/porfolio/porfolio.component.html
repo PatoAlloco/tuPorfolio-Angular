@@ -1,10 +1,12 @@
+
 <app-header></app-header>
 
-    <app-perfil *ngIf="idUsuario" [idUsuario]="idUsuario"></app-perfil>
-    <app-trabajos *ngIf="idUsuario" [usuario]="usuario"></app-trabajos>
-    <app-educacion *ngIf="idUsuario" [usuario]="usuario"></app-educacion>
-    <app-softskills *ngIf="idUsuario" [usuario]="usuario"></app-softskills>
-    <app-proyectos *ngIf="idUsuario" [usuario]="usuario"></app-proyectos>
+<app-loading *ngIf="loading"></app-loading>
+    <app-perfil *ngIf="usuario && usuario.id" [usuario]="usuario"></app-perfil>
+    <app-trabajos *ngIf="usuario && usuario.id" [usuario]="usuario"></app-trabajos>
+    <app-educacion *ngIf="usuario && usuario.id" [usuario]="usuario"></app-educacion>
+    <app-softskills *ngIf="usuario && usuario.id" [usuario]="usuario"></app-softskills>
+    <app-proyectos *ngIf="usuario && usuario.id" [usuario]="usuario"></app-proyectos>
 
 <app-footer></app-footer>
 

@@ -1,12 +1,12 @@
 <body>
-    <header class="container">
+    <header>
         <nav>
             <h1>tuProfolio </h1>
             <img src="../../assets/images/arg-programa.png" alt="logo Argentina Programa">
         </nav>
     </header>
 
-    <div class="container">
+    <div>
         <form [formGroup]="form" (ngSubmit)="onEnviar($event)">
             <div class="form-header">
                 <h2>tuPorfolio</h2>
@@ -15,45 +15,69 @@
 
             <label>Nombre</label>
             <input id="nombre" type="text" formControlName="nombre"
-            [ngClass]="{'is-invalid' : Nombre?.errors && Nombre?.touched, 'is-valid' : !Nombre?.errors && Nombre?.touched}" class="form-control">
+                [ngClass]="{'is-invalid' : Nombre?.errors && Nombre?.touched, 'is-valid' : !Nombre?.errors && Nombre?.touched}"
+                class="form-control">
             <div *ngIf="Nombre?.errors && Nombre?.touched">
-                <p *ngIf="Nombre?.hasError('required')" class="text-danger"> El Nombre es Requerido</p>
-                <p *ngIf="Nombre?.hasError('nombre')" class="text-danger"> Formato invalido</p>
+                <p *ngIf="Nombre?.hasError('required')" class="text-danger"> El Nombre es requerido</p>
+                <p *ngIf="Nombre?.hasError('nombre')" class="text-danger"> Formato inválido</p>
             </div>
 
             <label>Apellido</label>
             <input id="inputApellido" type="text" formControlName="apellido"
-            [ngClass]="{'is-invalid' : Apellido?.errors && Apellido?.touched, 'is-valid' : !Apellido?.errors && Apellido?.touched}" class="form-control">
+                [ngClass]="{'is-invalid' : Apellido?.errors && Apellido?.touched, 'is-valid' : !Apellido?.errors && Apellido?.touched}"
+                class="form-control">
             <div *ngIf="Apellido?.errors && Apellido?.touched">
-                <p *ngIf="Apellido?.hasError('required')" class="text-danger"> El Apellido es Requerido</p>
-                <p *ngIf="Apellido?.hasError('apellido')" class="text-danger"> Formato invalido</p>
+                <p *ngIf="Apellido?.hasError('required')" class="text-danger"> El Apellido es requerido</p>
+                <p *ngIf="Apellido?.hasError('apellido')" class="text-danger"> Formato inválido</p>
             </div>
 
             <label>Email</label>
             <input id="inputEmail" type="email" formControlName="mail"
-            [ngClass]="{'is-invalid' : Email?.errors && Email?.touched, 'is-valid' : !Email?.errors && Email?.touched}" class="form-control"
-            >
-            <div *ngIf="Email?.errors && Email?.touched">
-                <p *ngIf="Email?.hasError('required')" class="text-danger"> El mail es Requerido</p>
-                <p *ngIf="Email?.hasError('email')" class="text-danger"> Formato invalido</p>
+                [ngClass]="{'is-invalid' : Email?.errors && Email?.touched, 'is-valid' : !Email?.errors && Email?.touched}"
+                class="form-control">
+            <div *ngIf="(Email?.errors && Email?.touched) || mailRepetido">
+                <p *ngIf="Email?.hasError('required')" class="text-danger">El mail es requerido</p>
+                <p *ngIf="Email?.hasError('email')" class="text-danger">Formato inválido</p>
             </div>
+            <p *ngIf="mailRepetido" class="text-danger">El mail ingresado ya se encuentra registrado</p>
+
 
             <label>Contraseña</label>
             <input id="inputPassword" type="password" formControlName="password"
-            [ngClass]="{'is-invalid' : Password?.errors && Password?.touched, 'is-valid' : !Password?.errors && Password?.touched}" class="form-control">
+                [ngClass]="{'is-invalid' : Password?.errors && Password?.touched, 'is-valid' : !Password?.errors && Password?.touched}"
+                class="form-control">
             <div *ngIf="Password?.errors && Password?.touched">
-                <p *ngIf="Password?.hasError('required')" class="text-danger"> La contraseña es Requerida</p>
-                <p *ngIf="Password?.hasError('minlength')" class="text-danger"> La contraseña debe tener minimo 6 caracteres</p>
+                <p *ngIf="Password?.hasError('required')" class="text-danger"> La contraseña es requerida</p>
+                <p *ngIf="Password?.hasError('minlength')" class="text-danger"> La contraseña debe tener mínimo 6
+                    caracteres</p>
             </div>
 
             <label>Repetir contraseña</label>
-            <input id="inputPasswordRepetida" type="password">
+            <input id="inputPasswordRepetida" type="password" formControlName="passwordRepetida"
+                [ngClass]="{'is-invalid' : !validarPassword(form.value.passwordRepetida) && PasswordRepetida?.touched, 'is-valid' : !PasswordRepetida?.errors && PasswordRepetida?.touched}"
+                class="form-control">
+            <span *ngIf="!validarPassword(form.value.passwordRepetida) && PasswordRepetida?.touched"
+                class="text-danger">No coincide el password</span>
+            <div *ngIf="PasswordRepetida?.errors && PasswordRepetida?.touched">
+                <p *ngIf="PasswordRepetida?.hasError('required')" class="text-danger">
+                    La contraseña es requerida
+                </p>
+                <p *ngIf="PasswordRepetida?.hasError('minlength')" class="text-danger">
+                    La contraseña debe tener mínimo 6 caracteres
+                </p>
+            </div>
+            <button [disabled]="!Validacion" type="submit" class="btn">
+                Crear Cuenta
+            </button>
+            <br>
+            <div class="row justify-content-center align-items-center minh-100">
+                <div *ngIf="mostrarSpinner" class="spinner-grow text-muted"></div>
+            </div>
 
-            <button type="submit">Crear Cuenta</button>
         </form>
 
         <div class="ingresarA">
-            <a href="index.html">¿Ya tienes una cuenta? Ingrese aquí</a>
+            <a (click)="irALogin()">¿Ya tienes una cuenta? Ingrese aquí</a>
         </div>
     </div>
 

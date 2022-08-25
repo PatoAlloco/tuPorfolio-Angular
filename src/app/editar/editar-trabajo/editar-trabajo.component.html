@@ -1,25 +1,52 @@
 <body>
-    <div class="container">
+    <app-loading *ngIf="loading"></app-loading>
+    <div class="container" *ngIf="!loading">
+        <h3>Editar Experiencia Laboral</h3>
         <form class="m-5" [formGroup]="form" (ngSubmit)="editarTrabajo($event)">
             <div class="form-group">
                 <label for="exampleInputEmpresa">Empresa</label>
-                <input type="text" class="form-control" id="empresa" name="empresa" formControlName="empresa">
+                <input type="text" class="form-control" id="empresa" name="empresa" formControlName="empresa"
+                    [ngClass]="{'is-invalid' : Empresa?.errors && Empresa?.touched, 'is-valid' : !Empresa?.errors && Empresa?.touched}">
+                <span *ngIf="Empresa?.errors && Empresa?.touched" class="text-danger">Ingrese el nombre de la
+                    Empresa</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputPuesto">Puesto</label>
-                <input type="text" class="form-control" id="puesto" name="puesto" formControlName="puesto">
+                <input type="text" class="form-control" id="puesto" name="puesto" formControlName="puesto"
+                    [ngClass]="{'is-invalid' : Puesto?.errors && Puesto?.touched, 'is-valid' : !Puesto?.errors && Puesto?.touched}">
+                <span *ngIf="Puesto?.errors && Puesto?.touched" class="text-danger">Ingrese su puesto</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputInicio">Inicio</label>
-                <input type="date" class="form-control" id="inicio" name="inicio" formControlName="inicio">
+                <input type="date" class="form-control" id="inicio" name="inicio" formControlName="inicio"
+                    [ngClass]="{'is-invalid' : Inicio?.errors && Inicio?.touched || !validarFechaActual(form.value.inicio), 'is-valid' : !Inicio?.errors && Inicio?.touched}"
+                    [value]="form.value.inicio | date:'yyyy-MM-dd'">
+
+                <span *ngIf="Inicio?.errors && Inicio?.touched" class="text-danger">Ingrese la fecha en que inicio a
+                    trabajar</span>
+                <span *ngIf="!validarFechaActual(form.value.inicio)" class="text-danger">La fecha ingresada no puede
+                    superar a la actual</span>
             </div>
             <div class="form-group">
                 <label for="exampleInputFin">Fin</label>
-                <input type="date" class="form-control" id="fin" name="fin" formControlName="fin">
+                <input type="date" class="form-control" id="fin" name="fin" formControlName="fin"
+                    [ngClass]="{'is-invalid' : !validarFechaActual(form.value.fin) || !validarFechas()}"
+                    [value]="form.value.fin | date:'yyyy-MM-dd'">
+                <span *ngIf="!validarFechaActual(form.value.fin)" class="text-danger">La fecha ingresada no puede
+                    superar a la actual</span>
+                <span *ngIf="!validarFechas()" class="text-danger">La fecha actual no puede ser menor a la de
+                    inicio</span>
+
             </div>
-            
+
             <button type="button" (click)="volverHome()" class="btn btn-danger">Cancelar</button>
-            <button type="submit" class="btn btn-success">Agregar</button>
+            <button type="submit" [disabled]="!Validacion|| mostrarSpinner" class="btn btn-success">Guardar
+                cambios</button>
+            <br>
+            <br>
+            <div class="row justify-content-center align-items-center minh-100">
+                <div *ngIf="mostrarSpinner" class="spinner-grow text-muted"></div>
+            </div>
         </form>
     </div>
 </body>

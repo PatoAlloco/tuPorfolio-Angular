@@ -1,16 +1,16 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PorfolioService } from 'src/app/services/porfolio.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'; //, NgForm
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthenticationService } from 'src/app/services/autentication.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-editar-foto-perfil',
-  templateUrl: './editar-foto-perfil.component.html',
-  styleUrls: ['./editar-foto-perfil.component.css'],
+  selector: 'app-editar-foto-portada',
+  templateUrl: './editar-foto-portada.component.html',
+  styleUrls: ['./editar-foto-portada.component.css'],
 })
-export class EditarFotoPerfilComponent implements OnInit {
+export class EditarFotoPortadaComponent implements OnInit {
   @Input() usuario: any;
   idUsuario: any;
   perfil: any;
@@ -25,7 +25,7 @@ export class EditarFotoPerfilComponent implements OnInit {
     private ruta: Router,
     private formBuilder: FormBuilder,
     private activatedRoute: ActivatedRoute,
-    private authenticationService:AuthenticationService
+    private authenticationService: AuthenticationService
   ) {
     this.form = this.formBuilder.group({
       file: ['', Validators.required],
@@ -48,7 +48,7 @@ export class EditarFotoPerfilComponent implements OnInit {
       },
       error: (err) => {
         if (err.status == 401) {
-          this.authenticationService.Logout();//
+          this.authenticationService.Logout();
           this.ruta.navigate(['/login']);
         }
         this.loading = false;
@@ -74,13 +74,13 @@ export class EditarFotoPerfilComponent implements OnInit {
     fileReader.readAsDataURL(file);
   }
 
-  editarFotoPerfil() {
+  editarFotoPortada() {
     this.mostrarSpinner = true;
-
+    
     let fd = new FormData();
     fd.append('archivo', this.foto.file);
 
-    this.porfolioService.cargarFotoPerfil(this.idUsuario, fd).subscribe({
+    this.porfolioService.cargarFotoPortada(this.idUsuario, fd).subscribe({
       next: () => {
         this.mostrarSpinner = false;
         this.ruta.navigate(['/home']);

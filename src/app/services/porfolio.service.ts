@@ -19,7 +19,7 @@ export class PorfolioService {
   }
   
   crearUsuario(u:any):Observable<any>{
-    return this.http.post(this.url, u);
+    return this.http.post(this.url + 'registro', u);
   }
 
   obtenerUsuarioPorId(id:BigInt):Observable<any>{    

@@ -1,32 +1,33 @@
 <main *ngIf="mostrar">
     <section class="perfil">
         <div class="portada">
-            <img [src]='fotoPortada' alt="foto-portada" class="foto-portada"/>
-            <i class="button-icon-edit fa-solid fa-pen-to-square"></i>
+            <img *ngIf="fotoPortada" [src]='fotoPortada' alt="foto-portada" class="foto-portada"/>
+            <img *ngIf="!fotoPortada" src="../../assets/images/portada.jpg" alt="foto-portada-default" class="foto-portada"/>
+            <i (click)="irAPantallaEditarFotoPortada(usuario.id)" class="button-icon-edit fa-solid fa-pen-to-square"></i>
         </div>
         <div class="info-perfil-box">
             <div class="foto-perfil">
                 <div>
-                    <img [src]='fotoPerfil' alt="foto perfil" class="foto-perfil" />
-                    <i (click)="irAPantallaEditarFotoPerfil(miPorfolio.id)" class="button-icon-edit fa-solid fa-pen-to-square"></i>
+                    <img *ngIf="fotoPerfil" [src]='fotoPerfil' alt="foto perfil" class="foto-perfil" />
+                    <img *ngIf="!fotoPerfil" src="../../assets/images/profile.jpg" alt="foto perfil" class="foto-perfil" />
+                    <i (click)="irAPantallaEditarFotoPerfil(usuario.id)" class="button-icon-edit fa-solid fa-pen-to-square"></i>
                 </div>
             </div>
             <div class="info-perfil">
                 <div>
-                    <h2>{{miPorfolio.nombre + " " + miPorfolio.apellido}}</h2>
-                    <b>{{miPorfolio.ocupacion}}</b>
-                    <p>{{miPorfolio.ciudad + " - " + miPorfolio.provincia }}</p>
+                    <h2>{{usuario.nombre + " " + usuario.apellido}}</h2>
+                    <b>{{usuario.ocupacion? (usuario.ocupacion) : ""}}</b>
+                    <p>{{usuario.ciudad && usuario.provincia? usuario.ciudad + " - " + usuario.provincia : " "}}</p>
                 </div>
                 <div class="pull-right">
-                    <i (click)="irAPantallaEditar(miPorfolio.id)" class="button-icon-edit fa-solid fa-pen-to-square"></i>
-
+                    <i (click)="irAPantallaEditar(usuario.id)" class="button-icon-edit fa-solid fa-pen-to-square"></i>
                 </div>
             </div>
         </div>
     </section>
     <section class="sobre-mi">
         <h5>Sobre mí</h5>
-        <p>{{miPorfolio.sobreMi}}</p>
+        <p>{{usuario.sobreMi}}</p>
     </section>
 
     

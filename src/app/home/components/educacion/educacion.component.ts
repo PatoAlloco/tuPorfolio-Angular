@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PorfolioService } from 'src/app/services/porfolio.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-educacion',
@@ -13,8 +14,6 @@ export class EducacionComponent implements OnInit {
   educacion:any;
   private sub: any;
 
-  
-
   constructor(private ruta:Router,
               private activatedRoute:ActivatedRoute,
               private porfolioService:PorfolioService ) { }
@@ -24,25 +23,13 @@ export class EducacionComponent implements OnInit {
       this.idEducacion = +params['id'];
     });
 
-    this.porfolioService.obtenerUsuarioLogueado().subscribe( data =>{
-      this.porfolioService.obtenerUsuarioPorId(data.id).subscribe(data => {
-        this.usuario = data;
+    this.usuario.estudios.forEach((est: { id: any; }) => {
+      if (est.id == this.idEducacion) {
+        this.educacion = est;
+      }
+    });
 
-        this.usuario.estudios.forEach((est: { id: any; }) => {
-          if (est.id == this.idEducacion) {
-            this.educacion = est;
-            // this.form.controls['instituto'].setValue(this.educacion.instituto);
-            // this.form.controls['titulo'].setValue(this.educacion.titulo);
-            // this.form.controls['inicio'].setValue(this.educacion.inicio);
-            // this.form.controls['fin'].setValue(this.educacion.fin);
-          }
-        });
-      })
-    })
-
-    const estudiosss = this.usuario.estudios;
-
-
+    this.usuario.estudios.sort((a:any,b:any) => b.fin && b.fin.localeCompare(a.fin));
   }
   ngOnDestroy() {
     this.sub.unsubscribe();
@@ -57,14 +44,35 @@ export class EducacionComponent implements OnInit {
   }
 
   eliminarEducacion(idEstudio:BigInt){
-    const confirmacion = confirm('¿Seguro desea eliminar este estudio?');
-    if(confirmacion){
-      this.porfolioService.eliminarEducacion(this.usuario.id, idEstudio).subscribe( data =>{
-        console.log(data);
-        this.ruta.routeReuseStrategy.shouldReuseRoute = () => false;
-        this.ruta.onSameUrlNavigation = 'reload';
-        this.ruta.navigate([this.ruta.url]);
-        })
-    }
+    Swal.fire({
+      title: 'Atención',
+      text: '¿Seguro desea eliminar este estudio?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, estoy seguro',
+      cancelButtonText: 'No',
+    }).then((result) => {
+      Swal.showLoading ()
+      if (result.isConfirmed) {
+        this.porfolioService
+          .eliminarEducacion(this.usuario.id, idEstudio)
+          .subscribe({
+            next: () => {
+              this.ruta.routeReuseStrategy.shouldReuseRoute = () => false;
+              this.ruta.onSameUrlNavigation = 'reload';
+              this.ruta.navigate([this.ruta.url]);
+            },
+            error: () => {
+              Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Ha ocurrido un error',
+              });
+            },
+          });
+      }
+    });
   }
 }
