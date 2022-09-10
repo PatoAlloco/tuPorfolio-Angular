@@ -66,7 +66,6 @@ export class SingupComponent implements OnInit {
     event.preventDefault;
     this.portfolioService.crearUsuario(this.form.value).subscribe({
       next: (data) => {
-        console.log(data);
         this.ruta.navigate(['/login']);
       },
       error: (err) => {       
@@ -74,7 +73,6 @@ export class SingupComponent implements OnInit {
         if (err.status == 400) {
           this.mailRepetido = true;
         }
-        console.log(this.mailRepetido);
       },
     });
   }
